@@ -1,0 +1,7 @@
+//text/html
+// text/plain：将WEB服务器响应回来的文件设置成纯文本的形式，浏览器在获取到这种文件的时候并不会对其进行处理。
+
+后端学习
+python
+java
+php
