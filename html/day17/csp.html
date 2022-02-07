@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cps原理</title>
+</head>
+
+<body>
+    <script>
+        // Node中的底层设计模式: 回调与异步
+
+        // 1. 传统风格
+        function add1(a, b) {
+            // return: 将结果直接返回给"调用者"
+            return a + b
+        }
+        console.log(add1(1, 2))
+
+        console.log("---------------")
+
+        // 2. CPS 同步风格
+        // callback,必须是参数列中的最后一个参数
+        function add2(a, b, callback) {
+            // a+b的结果并不直接返回调用者,而是传给另一个回调函数继续执行
+            callback(a + b)
+        }
+        console.log("begin")
+        add2(1, 2, result => console.log(result))
+        console.log("end")
+            // 以上就是同步执行, 但是并不直接返回,而是通过一个回调继续执行
+            // 同步: 代码的书写顺序,与执行顺序一致
+
+        console.log("---------------")
+
+        // 2. CPS 异步风格
+        function add3(a, b, callback) {
+            // 将回调转为异步
+            setTimeout(() => callback(a + b), 500)
+        }
+        console.log("begin")
+            // 异步, 不在主线程执行
+        add3(1, 2, result => console.log(result))
+        console.log("end")
+            // 异步: 代码书写顺序与执行顺序不一致, 乱序执行
+
+        // Node中几乎每个API都使用了CPS异步风格来执行,遵循2个约定
+        // 1. 回调结尾: 回调参数始终是函数的最后一个参数
+        // 2. 错误优先: 回调传参时, 错误永远是第一个参数
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>挂载点, vue实例, 数据注入,响应式</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <!-- 1. 挂载点  -->
+    <div class="app">
+        <p>用户名: {{username}}</p>
+    </div>
+
+    <script>
+        // 2. vue 实例
+
+        const app = Vue.createApp({
+                // vue中的变量/数据全部写到data方法中
+                data() {
+                    return {
+                        username: "王老师",
+                    }
+                },
+            }).mount(".app")
+            // 将vue实例与页面中的挂载点元素绑定
+            // app.mount(document.querySelector(".app"))
+        console.log(app)
+
+        // 3. 数据注入
+        console.log(app.$data.username)
+        console.log(app.username)
+
+        // 用访问器属性来实现
+        const obj = {
+            $data: {
+                email: "498668472@qq.com",
+            },
+
+            // 访问器属性
+            get email() {
+                return this.$data.email
+            },
+        }
+        console.log(obj.$data.email)
+        console.log(obj.email)
+
+        // 4. 响应式
+        app.username = "灭绝师妹"
+    </script>
+</body>
+
+</html>

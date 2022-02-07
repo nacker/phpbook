@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>遍历DOM树</title>
+  </head>
+  <body>
+    <ul class="list">
+      <li class="item">item1</li>
+      <li class="item">item2</li>
+      <li class="item">item3</li>
+      <li class="item">item4</li>
+      <li class="item">item5</li>
+    </ul>
+    <script>
+      // 1. 节点类型
+      let ul = document.querySelector(".list");
+      //   console.log(ul.childNodes);
+      // 节点类型: 元素, 文本, 属性, 注释,文档...
+      // 通常只关注元素类型
+      console.log(ul.children);
+
+      // 2. 类数组: "类似"数组,像数组,但不是真正的数组,所以不能用数组上的方法
+      // 类数组特征:
+      // 1. 具有从0开始递增的正整数索引
+      // 2. 具有length属性, 表示成员数量
+
+      // 类数组 ==> 真数组
+      // 2.1 Array.from()
+      console.log(Array.from(ul.children));
+      // 2.2 ...rest
+      console.log([...ul.children]);
+
+      // 3. 遍历
+      //第一个, firstElementChild
+      console.log([...ul.children][0]);
+      [...ul.children][0].style.color = "blue";
+      ul.firstElementChild.style.background = "yellow";
+
+      // 下一个兄弟, 第2个, nextElementSibling
+      ul.firstElementChild.nextElementSibling.style.background = "green";
+
+      // 最后一个, lastElementChild
+      ul.lastElementChild.style.background = "yellow";
+
+      // 前一个兄弟, previousElementSibling
+      ul.lastElementChild.previousElementSibling.style.background = "lightgreen";
+
+      // 父节点/元素节点, parentElment / parentNode
+      //   ul.lastElementChild.parentElement.style.border = "4px solid";
+      ul.lastElementChild.parentNode.style.border = "4px solid red";
+    </script>
+  </body>
+</html>

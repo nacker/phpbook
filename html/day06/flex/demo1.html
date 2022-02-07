@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flex布局术语,容器,项目</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item">item1</div>
+      <div class="item">item2</div>
+      <div class="item">item3</div>
+    </div>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        /* flex容器 */
+        display: flex;
+        height: 20em;
+        border: 1px solid #000;
+      }
+      .container > .item {
+        /* flex容器中的"子元素" 则成为" 弹性项目/flex项目"  */
+        width: 10em;
+        /* height: 10em; */
+        padding: 1em;
+        background-color: lightcyan;
+        border: 1px solid #000;
+      }
+
+      .container {
+        /* 用在容器中的属性 */
+        /* flex-direction: row; */
+        /* flex-direction: column; */
+        /* flex-wrap: wrap; */
+        /* 1. 主轴方向,是否换行? */
+        flex-flow: row nowrap;
+        /* flex-flow: row wrap; */
+
+        /* 2. place-content: 容器中的剩余空间在项目之间进行分配 */
+        place-content: start;
+        place-content: end;
+        place-content: center;
+        /* 二端对齐 */
+        place-content: space-between;
+        /* 分散对齐 */
+        place-content: space-around;
+        /* 平均对齐 */
+        place-content: space-evenly;
+
+        /* 3. 项目在交叉轴上的对齐 */
+        place-items: stretch;
+        place-items: start;
+        place-items: end;
+        place-items: center;
+
+        /* flex容器上只需要记住三个属性就可以了 */
+        /* 1. flex-flow: 主轴方向, 换行  */
+        /* 2. place-content: 项目在主轴上的排列与空间分配 */
+        /* 2. place-items: 项目在交叉轴上的对齐方式 */
+      }
+    </style>
+  </body>
+</html>

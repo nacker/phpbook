@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch API</title>
+  </head>
+  <body>
+    <button onclick="getUser(this)">查询用户信息 - Fetch</button>
+
+    <script>
+      // 实际开发中, 通常不会直接去用Promise,用fetch
+      // axios : 基于 xhr
+      // fetch : 基于 promise, 返回一个Promise对象
+
+      //   console.log(fetch());
+
+      //   fetch("https://jsonplaceholder.typicode.com/users")
+      //     .then(response => response.json())
+      //     .then(json => console.log(json));
+
+      //   fetch("http://website.io/users.php")
+      //     .then(response => response.json())
+      //     .then(json => console.log(json));
+
+      // 同域: 协议相同, 域名相同,端口相同,否则就是跨域请求
+
+      //   ECMA2017, async, await, 来简化了fetch , 实现同步的方式来编写异步代码
+
+      // 异步函数,内部有异步操作
+      async function getUser(btn) {
+        let url = "http://website.io/users.php";
+        url = "http://website.io/users.php?id=3";
+        //await: 表示后面是一个异步请求,需要等待结果
+        const response = await fetch(url);
+        // response响应对象,json():将返回的数据转为json
+        const result = await response.json();
+
+        console.log(result);
+
+        // 渲染到页面中
+        render(result, btn);
+      }
+    </script>
+    <script src="function.js"></script>
+  </body>
+</html>

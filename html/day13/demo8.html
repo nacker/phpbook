@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数组常用api-3</title>
+  </head>
+  <body>
+    <script>
+      // 迭代方法, 遍历元素
+      // 1. forEach,map
+      // 2. every, some
+      // 3. filter, find, findIndex
+      // 4. reduce
+
+      //   1. forEach((item,index,arr)=>{...}), 每个元素逐个调用回调处理
+
+      let arr = [1, 2, 3, 4, 5];
+
+      let res = arr.forEach(function (item, index, arr) {
+        // 三个参数中, 只有第一个 item是必须的
+        console.log(item, index, arr);
+        // dom
+        document.body.append(item);
+      });
+      // 没有返回值
+      console.log(res);
+
+      // 2. map: 参数与功能 与forEach一样,只不过有返回值
+      res = arr.map(item => item * 2);
+      console.log(res);
+
+      // 3. every, some: 断言函数,返回true,false
+      //   every: 数组成员全部满足条件,则返回 true , 否则 false 与
+      console.log(arr.every(item => item >= 0));
+      console.log(arr.every(item => item >= 3));
+      // some: 数组成员中只要有一个满足条件,就返回 true, 否则 false, 或
+      console.log(arr.some(item => item >= 3));
+      console.log(arr.some(item => item >= 10));
+
+      // 4. filter: 返回数组中的满足条件的元素组成的新数组
+      console.log(arr.filter(item => item >= 3)); // [3,4,5]
+
+      //   arr.filter(item => item >= 3)[0] -> find
+      console.log(arr.find(item => item >= 3));
+      console.log(arr.findIndex(item => item >= 3));
+
+      // 5. reduce: 归并
+      res = arr.reduce(function (acc, cur, index, arr) {
+        // 查看reduce的执行过程
+        console.log("acc=", acc, "cur=", cur, "index=", index, "arr=", arr);
+        // 最终结果用 acc 返回, acc累加器
+        return acc + cur;
+      }, 5);
+      console.log(res);
+    </script>
+  </body>
+</html>

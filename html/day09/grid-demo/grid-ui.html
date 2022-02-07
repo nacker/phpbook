@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>仿bootstrap-12列栅格组件</title>
+    <style>
+      /* 行是一个grid容器,它内部采用grid布局 */
+      .row {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 0.5em;
+      }
+      .row > * {
+        /* grid 项目 */
+        background-color: lightcyan;
+        border: 1px solid #000;
+        box-sizing: border-box;
+        margin: 0.5em 0;
+      }
+      .col-md-1 {
+        grid-column: span 1;
+      }
+      .col-md-2 {
+        grid-column: span 2;
+      }
+      .col-md-3 {
+        grid-column: span 3;
+      }
+      .col-md-4 {
+        grid-column: span 4;
+      }
+      .col-md-5 {
+        grid-column: span 5;
+      }
+      .col-md-6 {
+        grid-column: span 6;
+      }
+      .col-md-7 {
+        grid-column: span 7;
+      }
+      .col-md-8 {
+        grid-column: span 8;
+      }
+      .col-md-9 {
+        grid-column: span 9;
+      }
+      .col-md-10 {
+        grid-column: span 10;
+      }
+      .col-md-11 {
+        grid-column: span 11;
+      }
+      .col-md-12 {
+        grid-column: span 12;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 必须先写一行row, 在这一行中, 再分12列 -->
+    <div class="row">
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">.col-md-8</div>
+      <div class="col-md-4">.col-md-4</div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">.col-md-4</div>
+      <div class="col-md-4">.col-md-4</div>
+      <div class="col-md-4">.col-md-4</div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">.col-md-6</div>
+      <div class="col-md-6">.col-md-6</div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">col-md-12</div>
+    </div>
+  </body>
+</html>

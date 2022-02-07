@@ -1,0 +1,78 @@
+@import url(public-footer.css);
+
+/* ! 页眉 */
+header {
+  background-color: #fff;
+  padding: 0.1rem;
+}
+header .top .pic {
+  width: 0.4rem;
+  /* 去掉图片底部多余白边 */
+  font-size: 0;
+}
+header .top {
+  display: flex;
+  place-items: center;
+}
+header .top .pic img {
+  width: 100%;
+  border-radius: 50%;
+  border: 1px solid red;
+}
+header .desc {
+  margin-left: 0.1rem;
+}
+header .desc .name {
+  font-size: 0.14rem;
+}
+header .desc .name .iconfont.icon-zuanshi {
+  font-size: 0.22rem;
+  color: red;
+}
+header .desc .name .iconfont.icon-dunpai {
+  font-size: 0.16rem;
+  color: rgb(168, 130, 196);
+}
+header .desc .user-id {
+  color: #999;
+}
+header .ads {
+  margin: 0.2rem 0;
+}
+header .ads img {
+  width: 100%;
+  border-radius: 0.1rem;
+}
+
+/* ! 主体 */
+main {
+  background-color: #eee;
+  height: 70vh;
+}
+
+main .list {
+  /* 上面有5px高的背景色,这里用上边框来模拟  */
+  border-top: 5px solid #efefef;
+  background-color: #fff;
+}
+main .list .item {
+  padding: 0 0.1rem;
+  display: grid;
+  grid-template-columns: minmax(0.6rem, 1rem) 1fr;
+  grid-auto-rows: 0.5rem;
+  place-content: space-between;
+}
+main .list .item + .item {
+  border-top: 1px solid #efefef;
+}
+main .list .item .left {
+  place-self: center start;
+}
+main .list .item .iconfont {
+  place-self: center end;
+}
+main .list .item:hover {
+  cursor: pointer;
+  background-color: #eee;
+  transition: 0.3s;
+}

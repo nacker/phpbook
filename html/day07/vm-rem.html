@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>移动端布局的基本常识</title>
+  </head>
+  <body>
+    <!-- DPR: 设备像素比 -->
+
+    <!-- 布局视图: 980px  -->
+    <!-- 视觉视图: 移动设备的布局视图: 375px  -->
+    <!-- width=device-width
+    width: 页面的布局的宽度
+    device-width: 视觉视图的宽度, 设备宽度 -->
+    <!-- width = 980px  
+    device-width: 375px   
+    width = device-width
+
+    width  = 375px    -->
+    <!-- 当前的布局视图,就是当前移动设备浏览器的可视区宽度  -->
+
+    <!-- ! 1. 布局视图 = 视觉视图 : width=device-width -->
+
+    <!-- initial-scale=1.0: 这种1:1还原视觉视图的布局, 叫: 理想视图  -->
+
+    <!-- ! 2. 理想视图 = 视觉视图 : initial-scale=1.0  -->
+
+    <!-- ! 目前 主流的 移动端布局方案: rem + vw  -->
+
+    <style>
+      /* 
+      iPhone11: 375px 
+      100vw = 100% = 375px  
+      1vw = 3.75px 
+      100px = 375px/3.75 = 100vw/3.75
+
+      之前浏览器的默认字号: 16px
+      这个也是默认的rem大小
+      1rem = 16px 
+
+
+      为了计算方便, 推荐将 1rem = 100px 
+
+      一个元素 width = 50px  = 0.5rem 
+
+      通常会给你一个750px宽度的设计稿, DPR = 2 
+      device-width = 750px / DPR  = 750 / 2 = 375px 
+
+      以后我们就直接以 375px 为宽度进行布局了 
+      
+      */
+
+      html {
+        /* font-size: 100px; */
+        font-size: calc(100vw / 3.75);
+      }
+      /* 因为 font-size是一个可以被继承的属性 */
+      body {
+        /* 把字号还原成浏览器默认的字号, 16px  */
+        /* font-size: 16px; */
+        font-size: 0.16rem;
+      }
+
+      /* 到现在为止, 
+      1rem = 100px   html
+      1em = 16px  body  */
+    </style>
+
+    <div class="box">hello php.cn</div>
+
+    <style>
+      .box {
+        /* 200px * 50px  */
+        width: 2rem;
+        height: 0.5rem;
+        border: 1px solid #000;
+        background-color: lightgreen;
+        box-sizing: border-box;
+      }
+
+      /* vw 是 当前屏幕宽度的 百分比 */
+      /* 1vw = 1%  */
+
+      /* 当屏幕宽度小于320px的时候, 字号不要再小了,否则就看不清了 */
+      @media screen and (max-width: 320px) {
+        html {
+          font-size: 85px;
+        }
+      }
+
+      /* 当屏幕宽度大于640px的时候, 字号不要再放大了 */
+      @media screen and (min-width: 640px) {
+        html {
+          font-size: 170px;
+        }
+      }
+    </style>
+  </body>
+</html>

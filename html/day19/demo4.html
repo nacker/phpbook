@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>todolist: 键盘修饰符</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div class="app">
+        <!-- <input type="text" @keydown="submit($event)" /> -->
+        <input type="text" @keydown.enter="submit($event)" />
+        <ul>
+            <li v-for="(item,index) of list" :key="index">{{item}}</li>
+        </ul>
+    </div>
+
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    list: [],
+                }
+            },
+            methods: {
+                submit(ev) {
+                    // console.log(ev.key)
+                    // if (ev.key === 'Enter') {
+                    //     this.list.unshift(ev.currentTarget.value)
+                    //     ev.currentTarget.value = null
+                    // }
+
+                    this.list.unshift(ev.currentTarget.value)
+                    ev.currentTarget.value = null
+                },
+            },
+        }).mount('.app')
+    </script>
+</body>
+
+</html>

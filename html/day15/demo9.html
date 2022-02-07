@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>模块常识</title>
+  </head>
+  <body>
+    <script type="module">
+      // 1. 导入模块
+
+      // import { hello, APP, user, email } from "./m3.js";
+
+      // 当导入成员较多时,使用命名空间来简化
+      // 命名空间,就是一个对象,只不过这个对象是在当前模块/脚本中是唯一的
+      import * as phpcn from "./m3.js";
+      console.log(phpcn.user);
+      console.log(phpcn.hello(phpcn.user));
+      console.log(phpcn.cnemail);
+      console.log(phpcn.APP);
+    </script>
+  </body>
+</html>

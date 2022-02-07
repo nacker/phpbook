@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>v-text,v-html,v-once</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <!-- vue指令: v-为前缀的一组指令,写到html标签的属性位置上,本质上讲就是"自定义属性" -->
+    <div class="app">
+        <!-- <p>用户名: {{username}}</p> -->
+        <!-- v-text = textContent  -->
+        <p>用户名: <span v-text="username"></span></p>
+        <!-- v-html:  innnerHTML -->
+        <p>用户名: <span v-html="username"></span></p>
+        <!-- v-once:  -->
+        <p>用户名: <span v-once="username"></span></p>
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    username: "灭绝老师",
+                }
+            },
+        }).mount(".app")
+
+        app.username = '<span style="color:red">猪老师</span>'
+
+        app.username = "张老师"
+    </script>
+</body>
+
+</html>

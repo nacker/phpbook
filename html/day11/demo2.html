@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>获取dom元素</title>
+  </head>
+  <body>
+    <ul class="list">
+      <li class="item">item1</li>
+      <li class="item">item2</li>
+      <li class="item">item3</li>
+      <li class="item">item4</li>
+      <li class="item">item5</li>
+    </ul>
+
+    <script>
+      // TODO  1. 一组: querySelectorAll(css选择器)
+      // TODO  2. 一个(一组中第1个): querySelector(css选择器)
+
+      // 1. 将所有的item变成红色
+      // html怎么表示?
+      console.log(document);
+      const items = document.querySelectorAll(".list > .item");
+      console.log(items);
+      for (let i = 0, length = items.length; i < length; i++) {
+        items[i].style.color = "red";
+      }
+      //   items.forEach(item => (item.style.color = "green"));
+
+      // 2. 将第一个改为黄色背景
+      const first = document.querySelector(".list > .item");
+      console.log(first === items[0]);
+      first.style.backgroundColor = "yellow";
+
+      const three = document.querySelector(".list > .item:nth-of-type(3)");
+      three.style.backgroundColor = "wheat";
+
+      // 3. 快捷方式
+      //   body
+      console.log(document.querySelector("body"));
+      console.log(document.body);
+      //head
+      console.log(document.head);
+      // title
+      console.log(document.title);
+      // html
+      console.log(document.documentElement);
+    </script>
+  </body>
+</html>

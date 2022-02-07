@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flex项目属性</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item">item1</div>
+      <div class="item">item2</div>
+      <div class="item">item3</div>
+    </div>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        /* flex容器 */
+        display: flex;
+        height: 20em;
+        border: 1px solid #000;
+      }
+      .container > .item {
+        /* flex容器中的"子元素" 则成为" 弹性项目/flex项目"  */
+        width: 10em;
+        /* max-width: 10em; */
+        /* height: 10em; */
+        padding: 1em;
+        background-color: lightcyan;
+        border: 1px solid #000;
+
+        /* flex: 放大因子 收缩因子 计算宽度 */
+        /* max-width >   计算宽度  > width  */
+        /* flex: 0 1 auto;
+        flex: initial;
+
+        flex: 1 1 auto;
+        flex: auto;
+
+        flex: 0 0 auto;
+        flex: none; */
+
+        /* 单值 */
+        flex: initial;
+
+        /* 双值 */
+        /* flex: 1 300px; */
+      }
+
+      /* order: 越小越靠前 */
+      .container .item:first-of-type {
+        background-color: yellow;
+        order: 1;
+      }
+      .container .item:last-of-type {
+        background-color: cyan;
+        order: -1;
+      }
+    </style>
+  </body>
+</html>

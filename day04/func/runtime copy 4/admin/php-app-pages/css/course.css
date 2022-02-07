@@ -1,0 +1,364 @@
+/* ! 头部: 包括了视频播放窗口 */
+header {
+  height: 2.6rem;
+  /* 限制宽度并居中 */
+  max-width: 750px;
+  min-width: 320px;
+  margin: auto;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #000;
+  z-index: 99;
+  /* grid 可快速定位元素 */
+  display: grid;
+}
+header video {
+  /* 主要是为了让封面海报图片适应容器 */
+  width: 100%;
+  height: 100%;
+}
+header video:hover {
+  cursor: pointer;
+}
+header .btns {
+  background-color: #fff;
+  display: flex;
+  place-content: space-around;
+  padding-bottom: 0.1rem;
+  border-bottom: 1px solid #efefef;
+}
+
+header .btns .item {
+  font-size: larger;
+  padding: 0.1rem 0.2rem;
+}
+header .btns .item.active {
+  color: red;
+  border-bottom: 1px solid red;
+}
+
+header .btns .item:hover {
+  cursor: pointer;
+  color: red;
+  border-bottom: 1px solid red;
+}
+
+/* !主体 */
+main {
+  /* 相对定位即可 */
+  position: relative;
+  /* 只需要设置距离顶部距离就可以了,就是要留出播放器窗口和导航按钮 */
+  top: 2.6rem;
+
+  /* 加大下边距,把页脚跳过去,否则会挡住最后一课的标题 */
+  padding: 0.1rem 0 1.2rem;
+}
+/* * 第1个章节列表 */
+main .chapter {
+  padding: 0.1rem;
+}
+main .chapter .desc {
+  height: 0.7rem;
+  position: fixed;
+  left: 0.1rem;
+  right: 0.1rem;
+  top: 2.6rem;
+  z-index: 99;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+
+  /* 限制宽度并居中 */
+  max-width: 750px;
+  min-width: 320px;
+  margin: auto;
+}
+/* 课程描述区块上下加点padding ,左右不需要 */
+main .chapter .desc div {
+  padding: 0.06rem 0;
+}
+/* 课程标题字号大一点 */
+main .chapter .desc .title {
+  font-size: larger;
+}
+main .chapter .desc .info {
+  font-size: 0.11rem;
+  color: #999;
+  display: flex;
+}
+/* 除最后一个,其它二个加右margin,不要挤太紧了 */
+main .chapter .desc .info span:not(:last-of-type) {
+  margin-right: 0.15rem;
+}
+/* 最后一个: 播放次数,放到最右边,只需要设置一个左margin自动计算,这要依赖前面的flex  */
+main .chapter .desc .info span:last-of-type {
+  margin-left: auto;
+}
+main .chapter .desc .info .tag {
+  color: red;
+  background-color: rgb(247, 209, 215);
+  border-radius: 0.1rem;
+  padding: 0.01rem 0.08rem;
+}
+main .chapter .list {
+  display: grid;
+}
+
+main .chapter .details {
+  /* background-color: red; */
+  position: relative;
+  /* 参考上面课程描述高度,进行偏移定位, .desc  */
+  top: 0.6rem;
+}
+main .chapter .details .list .title {
+  padding: 0.05rem 0;
+
+  font-size: larger;
+
+  display: flex;
+  place-content: space-between;
+}
+main .chapter .details .list > .title {
+  border-bottom: 1px solid #efefef;
+}
+main .chapter .details .list .title:hover {
+  cursor: pointer;
+  color: green;
+}
+main .chapter .details .list .lesson-list {
+  font-size: smaller;
+}
+
+main .chapter .details .list .lesson-list .item {
+  display: flex;
+  place-items: center;
+}
+main .chapter .details .list .lesson-list .item .status {
+  /* 最近学习靠最右 */
+  margin-left: auto;
+  background-color: rgb(252, 205, 212);
+  padding: 0.01rem 0.03rem;
+  color: red;
+  border-radius: 0.05rem;
+}
+main .chapter .details .list .lesson-list .item .iconfont {
+  font-size: 0.12rem;
+}
+main .chapter .details .list .lesson-list .item .title {
+  /* 课程标题与播放按钮之间要有一点点间隙 */
+  text-indent: 0.1rem;
+}
+
+.hidden {
+  /* ?这里为什么要添加 !important? */
+  /* ?因为第三个评论列表中使用了display:grid 用到了display属性 */
+  /* ?导致会覆盖掉 display: none; 会使评论列表出现在章节与详情中 */
+  display: none !important;
+}
+.active {
+  color: red;
+}
+
+/* * 第2个详情列表 */
+main .detail {
+  padding: 0.1rem;
+}
+main .detail .user {
+  /* 尽可能通过上下padding来控制高度,使之自增长,别将高度写死 */
+  padding: 0.1rem 0;
+  border-bottom: 1px solid #eee;
+  display: grid;
+  grid-template-columns: 0.5rem 4fr 1fr;
+  place-items: center start;
+}
+main .detail .user img {
+  width: 100%;
+  border-radius: 50%;
+}
+main .detail .user div {
+  margin: 0 0.1rem;
+  flex-basis: 3rem;
+  display: grid;
+  row-gap: 0.1rem;
+}
+main .detail .user .content {
+  color: #aaa;
+  font-size: 0.11rem;
+}
+/* 关注 */
+main .detail .user .like {
+  place-self: center end;
+  padding: 0.01rem 0.1rem;
+  border: 1px solid #444;
+  border-radius: 0.2rem;
+}
+
+main .detail .user .like:hover {
+  cursor: pointer;
+}
+
+/* 课程简介 */
+main .detail .desc {
+  padding: 0.1rem 0;
+  /* height: 0.7rem; */
+  border-bottom: 1px solid #eee;
+  display: grid;
+  row-gap: 0.15rem;
+}
+
+main .detail .desc .content {
+  text-indent: 0.15rem;
+  color: #aaa;
+  font-size: 0.11rem;
+}
+
+/* 他的课程 */
+main .detail .other {
+  padding: 0.1rem 0;
+}
+main .detail .other .courses {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 0.15rem;
+}
+main .detail .other .item {
+  padding: 0.1rem;
+}
+main .detail .other .item:hover {
+  cursor: pointer;
+}
+main .detail .other .item .imgs {
+  position: relative;
+  /* display: grid;
+  place-content: center; */
+}
+main .detail .other .item .imgs img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.1rem;
+}
+
+main .detail .other .item .imgs span.play {
+  font-size: 0.3rem;
+  opacity: 0.8;
+  /* 绝对定位 */
+  position: absolute;
+  /* 顶部, 左边的一半,减去按钮自身宽度的一半,可保证居中  */
+  top: calc(50% - calc(0.3rem / 2));
+  left: calc(50% - calc(0.3rem / 2));
+}
+main .detail .other .item .imgs span.count {
+  /* 播放次数图标也使用绝对定位  */
+  position: absolute;
+  /* 显示在右下角,与边界保持一定的间隙 */
+  bottom: 0.08rem;
+  right: 0.06rem;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  padding: 0.01rem 0.07rem;
+  border-radius: 0.1rem;
+  font-size: 0.1rem;
+}
+main .detail .other .item .title {
+  text-align: center;
+}
+
+/* 评论页 */
+main .review {
+  padding: 0.1rem;
+  display: grid;
+  row-gap: 0.2rem;
+}
+main .review .item {
+  font-size: 0.11rem;
+  display: grid;
+  grid-template-columns: 0.33rem 1fr 0.4rem 0.3rem;
+  grid-template-rows: 0.33rem 1fr 0.2rem;
+  gap: 0.1rem;
+  place-items: center;
+}
+
+main .review .item img {
+  width: 100%;
+  border-radius: 50%;
+  border: 1px double rgb(205, 89, 89);
+}
+main .review .item .name {
+  place-self: center start;
+}
+main .review .item .time {
+  grid-column: span 2;
+}
+main .review .item .content {
+  grid-column: 2 / span 3;
+  place-self: center start;
+}
+/* 评论内容之后二个,点赞和消息图标,从第3列开始排列,默认占一个单元格 */
+main .review .item .dianzan {
+  grid-column: 3;
+}
+main .review .item .dianzan:hover {
+  cursor: pointer;
+}
+/* 点赞和消息字体要小一号 */
+main .review .item .content ~ * {
+  font-size: 0.12rem;
+}
+
+/* ! 页脚 */
+footer {
+  height: 0.5rem;
+  /* 固定定位 */
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  background-color: #fff;
+  border-top: 1px solid #efefef;
+  padding: 0.05rem 0.1rem;
+  /* 限制宽度并居中 */
+  max-width: 750px;
+  min-width: 320px;
+  margin: auto;
+
+  /* 整体grid  */
+  display: grid;
+  /* 等比2列 */
+  grid-template-columns: repeat(2, 1fr);
+}
+footer .comment {
+  cursor: pointer;
+  /* 左侧其实不是输入窗口,只是用户评论的入口而已,点击后会跳转  */
+  background-color: #eee;
+  border-radius: 0.1rem;
+  display: flex;
+  place-items: center;
+  padding-left: 0.1rem;
+}
+
+/* 文本"说几句"与前面图标之间有点间隙 */
+footer .comment span:last-of-type {
+  text-indent: 0.06rem;
+}
+footer .other {
+  display: flex;
+  place-content: space-around;
+}
+footer .other .item {
+  cursor: pointer;
+  width: 0.4rem;
+  /* grid,flex结合着用,哪个方便用哪个 ,显然这里grid再简单 */
+  display: grid;
+  place-items: center;
+}
+footer .other .item:hover {
+  color: rgb(70, 172, 227);
+}
+/* 字体图标大一点 */
+footer .other .item span.iconfont {
+  font-size: 0.2rem;
+}

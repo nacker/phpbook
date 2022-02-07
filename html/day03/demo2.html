@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格元素</title>
+</head>
+<body>
+      <!-- table + caption + thead + tbody + tfoot -->
+      <table border="1" width="500">
+          <!-- 标题 -->
+          <caption>表格标题</caption>
+          
+          <!-- 数据必须填充到单元格中, 必须遵循"先行后列"的原则 -->
+          <!-- 表头 (可选)-->
+          <thead>
+            <tr>
+                <!-- th通常用在表头中,表示单元格 -->
+                <th>id</th>
+                <th>name</th>
+                <th>email</th>
+                <th>password</th>
+            </tr>
+          </thead>
+          <!-- 主体 (必选)-->
+          <tbody>
+              <!-- 行与列的合并  -->
+            <tr>
+                <td>1</td>
+                <td>x</td>
+                <td>x</td>
+                <td>x</td>
+            </tr>
+            <!-- 第2行 -->
+            <tr>
+                <!-- 水平方向合并: 只保留第1个,将相邻的td删除/注释 -->
+                <td>2</td>
+                <td colspan="3" bgcolor="lightgreen">x</td>
+                <!-- <td>x</td>
+                <td>x</td> -->
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>x</td>
+                <!-- 垂直方向: 只保留当前行的td, 将相邻的行对应看位置的td删除/注释  -->
+                <td rowspan="3" bgcolor="cyan">x</td>
+                <td>x</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>x</td>
+                <!-- <td>x</td> -->
+                <td>x</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>x</td>
+                <!-- <td>x</td> -->
+                <td>x</td>
+            </tr>
+          </tbody>
+          <!-- 表尾 (可选)-->
+          <tfoot>
+              <tr>
+                  <td>x</td>
+                  <td>x</td>
+                  <td>x</td>
+                  <td>x</td>
+              </tr>
+          </tfoot>
+      </table>
+
+      <!-- 作业: 写一个课程表, 内容自定义 -->
+</body>
+</html>

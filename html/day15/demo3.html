@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise前世今生</title>
+  </head>
+  <body>
+    <script>
+      // promise的由来
+      function createFile(success, failure) {
+        // 执行一些异步操作
+        success();
+        failure();
+      }
+
+      function success(result) {
+        return "Success " + result;
+      }
+
+      function failure(error) {
+        return "Failure " + error;
+      }
+
+      createFile(success, failure);
+
+      createFile().then(success1).then(json).catch(failure);
+
+      /**
+       * 优点:
+       * 1. 用同步的方式编写异步代码, 业务逻辑更清晰,易理解
+       * 2. 使用then()可串联多个异步回调,解决了回调顺序执行的历史难题
+       * 3. 异步总是在同步之后执行,所以在本轮事件循环完成之前,异步回调不会被调用
+       * 4. 就算是异步回调已完成,之后通过then添加的回调方法仍然会被调用,非常人性
+       */
+    </script>
+  </body>
+</html>

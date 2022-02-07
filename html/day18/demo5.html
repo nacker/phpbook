@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>双向绑定</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <!-- es6  -->
+    <p>
+        <div>es6:</div>
+        <input type="text" oninput="this.nextElementSibling.textContent=this.value"><span></span>
+    </p>
+
+    <!-- vue  -->
+
+    <div class="app">
+        <p>
+            <div>vue@input</div>
+            <!-- vue中的事件对象,使用 $event , 不能直接 用 event  -->
+            <input type="text" v-on:input="comment = $event.target.value" :value="comment"><span>{{comment}}</span>
+        </p>
+
+        <p>
+            <div>vue@v-model</div>
+            <!-- vue中的事件对象,使用 $event , 不能直接 用 event  -->
+            <input type="text" v-model="comment" :value="comment"><span>{{comment}}</span>
+        </p>
+
+        <!-- 延迟绑定 -->
+        <p>
+            <div>vue@v-model.lazy</div>
+            <input type="text" v-model.lazy="comment" :value="comment"><span>{{comment}}</span>
+        </p>
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    comment: ''
+                }
+            }
+        }).mount('.app')
+    </script>
+</body>
+
+</html>

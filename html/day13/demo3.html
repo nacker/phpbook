@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js运行机制: 单线程+事件循环</title>
+  </head>
+  <body>
+    <script>
+      // 1. 单线程: 主线程
+      // 同步: 代码的"书写顺序"与"执行顺序"一致, 写在前面先执行
+      console.log(1);
+      console.log(2);
+      console.log(3);
+
+      console.log("--------------");
+
+      console.log(1);
+      setTimeout(() => console.log(2), 3000);
+      console.log(3);
+
+      //   定时任务: setTimeout(函数,等待时间)
+      //   console.log(1);
+      // 要等待三秒后才执行,这三秒理论上说,是什么也做不了,代码到这里就"阻塞"
+      //   setTimeout(() => console.log(2), 3000);
+      //   console.log(3);
+
+      // js引擎将第二个任务离开了"主线程",放到了"任务队列"的地方
+      // 当主线程上已没有任务的时候,由"事件循环"将这个任务重新放回到主线程中执行
+
+      // 执行机制
+      // 1. 同步任务: 主线程
+      // 2. 异步任务: 任务队列, 事件循环来调度
+
+      // 哪些是异步任务?
+      // 1. 定时任务, 2. 事件, 3, IO操作(input,output), 4. http请求
+
+      // 怎么实现异步? 回调函数
+    </script>
+  </body>
+</html>

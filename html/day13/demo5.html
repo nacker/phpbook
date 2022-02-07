@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>字符中常用api</title>
+  </head>
+  <body>
+    <script>
+      let str = "php中文网";
+      // 索引从0开始:
+      // [0->p,1->p,2->p,3->中,4->文, 5->网]
+      // index = [0, str.length-1]
+
+      // 1. length 长度
+      console.log(str.length);
+
+      // 2. charAt: 索引->元素
+      console.log(str.charAt(3));
+      console.log(str[3]);
+
+      // 3. indexOf: 字符->索引
+      console.log(str.indexOf("中"));
+
+      // 4. search: indexOf一样,但支持正则等
+      console.log(str.search("文"));
+
+      // 5. concat: 字符串拼装
+      console.log(str.concat("(", "php.cn", ")"));
+      // 直接用"+", 或者`模板字面量` 更方便
+
+      // 6. replace: 替换
+      console.log(str.replace("中文网", ".cn"));
+      //   str = "php";
+      console.log(str);
+
+      // 7. slice: 子串, 忽略结束索引的值
+      console.log(str.slice(0, 3));
+
+      // 8. substr: 子串, 只需要知道取多少个
+      console.log(str.substr(0, 3));
+      console.log(str.substr(3, 3));
+      //   -1最后一个, -2向前一个
+      console.log(str.substr(-3, 3)); // 中文网
+
+      // 9. split: str->array
+      console.log(str.split(""));
+      console.log(str.split("", 3));
+
+      // 10. toLowerCase, toUpperCase 大小写转换
+      console.log(str.toLowerCase());
+      console.log(str.toUpperCase());
+
+      // 11. 与html相关
+      console.log(`<a href="https://php.cn">${str}</a>`);
+
+      console.log(str.link("https://php.cn"));
+
+      console.log(str.bold());
+      console.log(str.big());
+      console.log(str.anchor("url"));
+    </script>
+  </body>
+</html>

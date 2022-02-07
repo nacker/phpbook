@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>实战1: 选项卡</title>
+    <style>
+      .box {
+        width: 28em;
+        display: grid;
+        grid-template-columns: 3em 1fr;
+      }
+      .box ul {
+        margin: 0;
+        padding: 0;
+      }
+      .box li {
+        list-style: none;
+        /* height: 2em; */
+      }
+      .box li a {
+        text-decoration: none;
+      }
+      .box li:hover {
+        cursor: pointer;
+      }
+      .box .content {
+        background-color: lightgreen;
+        display: none;
+        place-self: center start;
+      }
+      .box .content.active {
+        display: block;
+      }
+      .box .menu li.active {
+        background-color: lightgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <!-- 1. 标签 -->
+      <ul class="menu" onclick="show()">
+        <li data-index="1" class="active">本省</li>
+        <li data-index="2">全国</li>
+        <li data-index="3">防疫</li>
+      </ul>
+
+      <!-- 2. 内容 -->
+      <ul class="content active" data-index="1">
+        <li><a href="">刚刚通报!2021安徽GDP预计破4万亿元!</a></li>
+        <li><a href="">刚刚通报!2021安徽GDP预计破4万亿元!</a></li>
+        <li><a href="">刚刚通报!2021安徽GDP预计破4万亿元!</a></li>
+        <li><a href="">刚刚通报!2021安徽GDP预计破4万亿元!</a></li>
+        <li><a href="">刚刚通报!2021安徽GDP预计破4万亿元!</a></li>
+      </ul>
+
+      <ul class="content" data-index="2">
+        <li><a href="">总书记关心北京冬奥会,冬残奥会筹办纪实</a></li>
+        <li><a href="">总书记关心北京冬奥会,冬残奥会筹办纪实</a></li>
+        <li><a href="">总书记关心北京冬奥会,冬残奥会筹办纪实</a></li>
+        <li><a href="">总书记关心北京冬奥会,冬残奥会筹办纪实</a></li>
+        <li><a href="">总书记关心北京冬奥会,冬残奥会筹办纪实</a></li>
+      </ul>
+
+      <ul class="content" data-index="3">
+        <li><a href="">坚持“动态清零”不动摇(人民论坛)</a></li>
+        <li><a href="">坚持“动态清零”不动摇(人民论坛)</a></li>
+        <li><a href="">坚持“动态清零”不动摇(人民论坛)</a></li>
+        <li><a href="">坚持“动态清零”不动摇(人民论坛)</a></li>
+        <li><a href="">坚持“动态清零”不动摇(人民论坛)</a></li>
+      </ul>
+    </div>
+    <script>
+      function show() {
+        // 事件绑定
+        // const ul = event.currentTarget;
+
+        // 事件触发者
+        // const li = event.target;
+
+        // 1. 将原高亮的标签去掉高亮样式,并把当前点击的标签设置为高亮
+        [...event.currentTarget.children].forEach(li => li.classList.remove("active"));
+        event.target.classList.add("active");
+
+        // 2. 根据标签的自定义索引属性来确定应该显示哪个列表
+        // const uls = document.querySelectorAll(".content");
+        document.querySelectorAll(".content").forEach(li => li.classList.remove("active"));
+
+        // data-index === 左面的标签的data-index
+        // const content = [...uls].find(ul => ul.dataset.index === li.dataset.index);
+        [...document.querySelectorAll(".content")]
+          .find(ul => ul.dataset.index === event.target.dataset.index)
+          .classList.add("active");
+        // content.classList.add("active");
+      }
+    </script>
+  </body>
+</html>

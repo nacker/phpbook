@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件冒泡与事件委托/事件代理</title>
+  </head>
+  <body>
+    <button onclick="show()">click</button>
+    <ul>
+      <li>item1</li>
+      <li>item2</li>
+      <li>item3</li>
+      <li>item4</li>
+      <li>item5</li>
+    </ul>
+
+    <script>
+      function show() {
+        console.log(event.type);
+
+        // 1. 事件绑定者(事件主体), onclick加到哪个元素上
+        console.log(event.currentTarget);
+
+        // 2. 事件触发者(目标)
+        console.log(event.target);
+
+        console.log(event.currentTarget === event.target);
+      }
+
+      const lis = document.querySelectorAll("li");
+      for (let i = 0, length = lis.length; i < length; i++) {
+        //   onclick: 默认是冒泡阶段触发
+        lis[i].onclick = () => console.log(event.currentTarget);
+      }
+      // ul.onclick
+      document.querySelector("ul").onclick = () => console.log(event.currentTarget);
+      // body.onclick
+      document.body.onclick = () => console.log(event.currentTarget);
+      // html.onclick
+      document.documentElement.onclick = () => console.log(event.currentTarget);
+
+      // 阻止冒泡
+      for (let i = 0, length = lis.length; i < length; i++) {
+        lis[i].onclick = () => {
+          // 防止事件冒泡
+          event.stopPropagation();
+          console.log(event.currentTarget);
+        };
+      }
+
+      // 取消原来的在所有li上添加的click
+      for (let i = 0, length = lis.length; i < length; i++) {
+        lis[i].onclick = null;
+      }
+
+      // 将原来逐个添加到li上的click,现在根据冒泡原理,只需要添加到父级ul一次就可以
+
+      // 事件委托: 子元素上的事件,全部委托到父级上触发, 来简化代码
+      // 事件委托,也叫事件代理
+      document.querySelector("ul").onclick = () => {
+        // 防止事件冒泡
+        event.stopPropagation();
+
+        // 1. 事件绑定者(事件主体), onclick加到哪个元素上
+        console.log(event.currentTarget);
+
+        // 2. 事件触发者(目标)
+        console.log(event.target);
+
+        console.log(event.currentTarget === event.target);
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vm+rem移动端布局</title>
+    <!-- ! 使用vm+rem的优势, 元素动态适配页面宽度 -->
+    <style>
+      html {
+        /* iPhone 11:  100vm = 375px */
+        /* 1vw = 3.75px */
+        /* 为了计算元素大小方便,通常将 1rem = 100px */
+        /* font-size: 100px; */
+        /* 假设当前是宽度为375px, 即 375px = 100vm */
+        /* 所以, 100px = (375px / 3.75) = (100vw / 3.75 */
+        font-size: calc(100vw / 3.75);
+
+        /* 以后只要设计图改了,例如换成iPhone 13, 390px  */
+        /* font-size: calc(100vw / 3.9); */
+      }
+
+      /* 字体建议在body中设置,供子元素继承使用,以简化代码 */
+      body {
+        /* font-size:16px; */
+        font-size: 0.16rem;
+      }
+
+      .box {
+        /* box: 200px * 50px */
+        width: 2rem;
+        height: 0.5rem;
+        box-sizing: border-box;
+        background-color: violet;
+        border: 1px solid #000;
+        display: grid;
+        place-content: center;
+      }
+
+      /* 尽管vm可做到无比丝滑的动态设置元素大小,但为了防止过小,或过大,最好用媒体查询来约束一下 */
+      /* 即宽度小于320px,元素和文本不再变小 */
+      @media screen and (max-width: 320px) {
+        html {
+          font-size: 85px;
+        }
+      }
+      /* 宽度大于640px,元素和文本也不再放大 */
+      @media screen and (min-width: 640px) {
+        html {
+          /* 因为 640为最小值320的二倍,所以这里断点也是2倍,即 85*2 = 170px */
+          font-size: 170px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">Hello world</div>
+  </body>
+</html>

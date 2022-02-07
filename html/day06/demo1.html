@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>响应式布局: 媒体查询</title>
+  </head>
+  <body>
+    <!-- 媒体: 屏幕, 打印机  -->
+    <!-- 查询: 查询当前的屏幕的宽度变化 -->
+    <!-- 布局前提: 宽度受限, 而高度不受限的空间内进行布局 -->
+
+    <button class="btn small">按钮1</button>
+    <button class="btn middle">按钮2</button>
+    <button class="btn large">按钮3</button>
+  </body>
+
+  <style>
+    html {
+      font-size: 10px;
+    }
+    /* 按钮基本样式 */
+    .btn {
+      background-color: seagreen;
+      color: white;
+      border: none;
+      outline: none;
+    }
+
+    .btn:hover {
+      cursor: pointer;
+      opacity: 0.8;
+      transition: 0.3s;
+      padding: 0.4rem 0.8rem;
+    }
+
+    /* 小按钮 */
+    .btn.small {
+      /* 1.2rem = 12px */
+      font-size: 1.2rem;
+    }
+
+    /* 中按钮 */
+    .btn.middle {
+      /* 1.6rem = 16px */
+      font-size: 1.6rem;
+    }
+    /* 中按钮 */
+    .btn.large {
+      /* 1.8rem = 18px */
+      font-size: 1.8rem;
+    }
+
+    /* 只要动态的修改rem , 就可以实现动态的改变按钮大小 */
+
+    /* 移动优先: 从最小的屏幕开始进行适配 */
+    /* < 375px  */
+    @media (max-width: 374px) {
+      html {
+        font-size: 12px;
+      }
+    }
+
+    /* 375px - 414px */
+    @media (min-width: 375px) and (max-width: 413px) {
+      html {
+        font-size: 14px;
+      }
+    }
+
+    /* > 414px */
+    @media (min-width: 414px) {
+      html {
+        font-size: 16px;
+      }
+    }
+
+    /* PC优先: 从大屏开始适配,  从大到小, 作业 */
+  </style>
+</html>

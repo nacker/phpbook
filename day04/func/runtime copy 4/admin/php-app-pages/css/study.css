@@ -1,0 +1,242 @@
+@import url("public-footer.css");
+
+/* ! 页眉 */
+/* ? 页眉顶部 */
+header .top {
+  padding: 0.1rem;
+  display: flex;
+  place-content: space-between;
+}
+header .top .title {
+  font-size: 0.18rem;
+}
+header .top .zhengshu {
+  background-color: rgb(223, 155, 29);
+  padding: 0.02rem 0.1rem;
+  border-radius: 0.1rem;
+  color: #fff;
+}
+header .top .zhengshu .iconfont.icon-zhengshu {
+  font-size: 0.16rem;
+}
+/* ? 页眉底部 */
+header .total {
+  height: 1rem;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  place-items: center;
+}
+header .total * {
+  flex: 1;
+  text-align: center;
+}
+
+header .total dl dd:first-of-type {
+  font-size: 0.22rem;
+  font-weight: bolder;
+  margin-bottom: 0.1rem;
+}
+header .total dl dd:first-of-type small {
+  font-size: 0.1rem;
+  font-weight: lighter;
+  color: #ccc;
+}
+header .total dl dt {
+  font-weight: lighter;
+  color: #999;
+}
+
+/* ! 主体 */
+main {
+  padding: 0.1rem;
+}
+main .top {
+  margin: 0.1rem 0 0.2rem;
+  display: flex;
+  place-content: space-between;
+}
+main .top:hover {
+  cursor: pointer;
+  color: coral;
+}
+
+/* 主体中间:最近已学 */
+main .learned {
+  border-bottom: 1px solid #ccc;
+}
+main .top .title span:last-of-type {
+  font-size: 0.14rem;
+}
+/* 课程列表第一个主图课程 */
+main .learned img {
+  width: 100%;
+  border-radius: 0.06rem;
+}
+
+main .learned .first {
+  display: grid;
+  grid-template-columns: minmax(1.2rem, 1.5rem) 1fr;
+  column-gap: 0.1rem;
+}
+main .learned .first:hover {
+  cursor: pointer;
+  background-color: #dedede;
+}
+
+main .learned .first .imgs {
+  /* 定位父级,用于将播放图标和日期文本显示到图片中 */
+  position: relative;
+  /* 去掉图片容器的底部多出的几个像素 */
+  font-size: 0;
+}
+
+/* 播放图标 */
+main .learned .first .imgs span:first-of-type {
+  font-size: 0.3rem;
+  /* 绝对定位到课程图标的中间位置:水平垂直居中 */
+  position: absolute;
+  /* left,right都为0,设置了一个水平定位的边界参考 */
+  left: 0;
+  right: 0;
+  text-align: center;
+  /* 垂直居中: 容器高度(100%)的一半,再减去字体图标字号的一半,就可实现垂直居中 */
+  top: calc(calc(100% / 2) - 0.15rem);
+}
+
+/* 标题图片底部的日期,同样使用绝对定位 */
+main .learned .first .imgs .date {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  /* 因为容器字号为0,而font-size是继承属性,所以这里要重新设置一下,否则看不到了 */
+  font-size: 0.11rem;
+  /* 圆角 */
+  border-bottom-left-radius: 0.1rem;
+  border-bottom-right-radius: 0.1rem;
+  /* 文本水平居中 */
+  text-align: center;
+  /* 加间间隙文本文本不要太靠边啦 */
+  padding: 0.03rem 0;
+}
+
+main .learned .first .desc {
+  display: grid;
+}
+main .learned .first .desc .title {
+  grid-column: span 2;
+  font-size: 0.14rem;
+  height: 0.5rem;
+}
+main .learned .first .desc .info {
+  place-self: center;
+  color: #ccc;
+  font-size: 0.12rem;
+}
+main .learned .first .desc .tips {
+  padding: 0.01rem 0.05rem;
+  place-self: center end;
+  color: white;
+  border-top-left-radius: 0.06rem;
+  border-bottom-right-radius: 0.06rem;
+  /* 渐变背景 */
+  background: linear-gradient(to bottom right, rgb(233, 136, 91), rgb(235, 76, 18));
+}
+
+/* 横向课程列表 */
+main .learned .list {
+  padding: 0.2rem 0;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+}
+
+main .learned .list .item {
+  /* 允许放大,禁止收缩, 宽度限定为1rem  */
+  flex: 1 0 1rem;
+
+  display: grid;
+  row-gap: 0.13rem;
+}
+main .learned .list .item:hover {
+  cursor: pointer;
+}
+
+/* ! "* + *" : 经典的猫头鹰语法, 从第二个开始添加样式 */
+main .learned .list .item + .item {
+  margin-left: 0.1rem;
+}
+
+main .learned .list .imgs {
+  /* 定位父级,用于将播放图标和日期文本显示到图片中 */
+  position: relative;
+  /* 去掉图片容器的底部多出的几个像素 */
+  font-size: 0;
+}
+
+/* 播放图标 */
+main .learned .list .imgs span:first-of-type {
+  font-size: 0.2rem;
+  /* 绝对定位到课程图标的中间位置:水平垂直居中 */
+  position: absolute;
+  /* left,right都为0,设置了一个水平定位的边界参考 */
+  left: 0;
+  right: 0;
+  text-align: center;
+  /* 垂直居中: 容器高度(100%)的一半,再减去字体图标字号的一半,就可实现垂直居中 */
+  top: calc(calc(100% / 2) - 0.15rem);
+}
+
+/* 标题图片底部的日期,同样使用绝对定位 */
+main .learned .list .imgs .date {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  /* 因为容器字号为0,而font-size是继承属性,所以这里要重新设置一下,否则看不到了 */
+  font-size: 0.09rem;
+  /* 圆角 */
+  border-bottom-left-radius: 0.1rem;
+  border-bottom-right-radius: 0.1rem;
+  /* 文本水平居中 */
+  text-align: center;
+  /* 加间间隙文本文本不要太靠边啦 */
+  padding: 0.03rem 0;
+}
+
+/* ? 学习中心 */
+
+main .learn-hub {
+  margin: 0.15rem 0;
+}
+main .learn-hub .title {
+  font-size: 0.14rem;
+}
+
+main .learn-hub .list {
+  height: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  place-items: center;
+}
+main .learn-hub .list .item {
+  display: grid;
+  column-gap: 0.2rem;
+  place-items: center;
+}
+main .learn-hub .list .item:hover {
+  color: rgb(235, 76, 18);
+  cursor: pointer;
+}
+
+/* 图标大一点 */
+main .learn-hub .list .item .iconfont {
+  font-size: 0.25rem;
+}
+main .learn-hub .list .item .title {
+  font-size: 0.12rem;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件的添加与删除</title>
+  </head>
+  <body>
+    <button>元素对象</button>
+    <button>元素事件监听器</button>
+    <button>事件派发/点击广告赚钱</button>
+    <script>
+      const btn1 = document.querySelector("button:first-of-type");
+      btn1.onclick = function () {
+        console.log(event);
+      };
+      btn1.onclick = null;
+
+      // 事件监听器
+      const btn2 = document.querySelector("button:nth-of-type(2)");
+      function show() {
+        console.log(event);
+      }
+      // 事件回调方法不能移除,必须是命名函数才可以
+      btn2.addEventListener("click", show, false);
+      btn2.removeEventListener("click", show, false);
+
+      // 事件派发
+      const btn3 = document.querySelector("button:nth-of-type(3)");
+
+      //   先添加一个事件,然后自动去的触发它
+      let i = 0;
+      btn3.addEventListener(
+        "click",
+        () => {
+          console.log("恭喜你,又赚了 : " + i + "元");
+          i += 0.8;
+        },
+        false
+      );
+
+      // 创建一个自定义事件
+      const myclick = new Event("click");
+
+      //   btn3.dispatchEvent(myclick);
+      //   btn3.dispatchEvent(myclick);
+      //   btn3.dispatchEvent(myclick);
+      //   btn3.dispatchEvent(myclick);
+      //   btn3.dispatchEvent(myclick);
+      //   btn3.dispatchEvent(myclick);
+
+      //   setTimeout()一次性定时器
+      //   setTimeout(() => btn3.dispatchEvent(myclick), 2000);
+
+      //   setInterval: 间歇式的定时器
+      setInterval(() => btn3.dispatchEvent(myclick), 2000);
+    </script>
+  </body>
+</html>

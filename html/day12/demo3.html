@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dom元素的增删改</title>
+  </head>
+  <body>
+    <script>
+      // 1. 创建元素
+      const ul = document.createElement("ul");
+
+      // 2. 添加到页面中/html中: append
+      document.body.append(ul);
+
+      // 3. 为ul列表添加元素
+      for (let i = 0; i < 5; i++) {
+        const li = document.createElement("li");
+        li.textContent = "item" + (i + 1);
+        ul.append(li);
+      }
+
+      // 4.查看元素
+      console.log(ul);
+      // outerHTML: 元素的html字符串表示
+      console.log(ul.outerHTML);
+
+      // 5. 在节点之前插入: before
+      const li = document.createElement("li");
+      li.textContent = "new  item";
+      li.style.color = "red";
+      const three = document.querySelector("ul li:nth-of-type(3)");
+      three.before(li);
+
+      // 6. 在节点之后插入 : after
+      // cloneNode(true): 克隆节点, true, 复制元素后代的内容
+      let cloneLi = li.cloneNode(true);
+      three.after(cloneLi);
+
+      // 7. 在父节点的标签为插入点,进行插入元素
+      // insertAdjacentElement('插入位置', 元素)
+      // 插入位置有四个
+      // afterBegin: 开始标签之后,第一个子元素
+      // beforeBegin: 开始标签之前,是它的前一个兄弟元素
+      // afterEnd: 结束标签之后,它的下一个兄弟元素
+      // beforeEnd: 结束标签之前,它的最后一个子元素
+      ul.style.border = "1px solid";
+
+      const h3 = document.createElement("h3");
+      h3.textContent = "商品列表";
+      ul.insertAdjacentElement("beforeBegin", h3);
+
+      const p = document.createElement("p");
+      p.textContent = "共计: 7 件";
+      ul.insertAdjacentElement("afterEnd", p);
+
+      // 8. 替换 replaceChild
+      // 1. 插入点
+      const last = document.querySelector("ul li:last-of-type");
+      // 2. 插入的元素
+      const a = document.createElement("a");
+      a.href = "https://php.cn";
+      a.textContent = "php.cn";
+      // 3. 执行替换
+      ul.replaceChild(a, last);
+
+      // 9. 移除: remove
+      ul.lastElementChild.remove();
+    </script>
+  </body>
+</html>

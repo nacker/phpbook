@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dom实战: 留言板</title>
+  </head>
+  <body>
+    <!-- onkeydown: 按下键时触发 -->
+    <input type="text" onkeydown="addMsg(this)" placeholder="请输入留言内容" autofocus />
+    <ul class="list"></ul>
+
+    <script>
+      function addMsg(ele) {
+        console.log(ele);
+        // event:保存了当前所有的事件信息,是当前事件的事件对象
+        // event: 在事件方法中, 总是可用的
+        console.log(event);
+        console.log(event.key);
+        if (event.key === "Enter") {
+          // 1. 获取留言列表的容器
+          const ul = document.querySelector(".list");
+
+          // 2. 判断留言是否为空?
+          if (ele.value.length === 0) {
+            alert("留言内容不能为空");
+            ele.focus();
+            return false;
+          }
+          // 3. 添加一条新留言
+          const li = document.createElement("li");
+          //   li.textContent = ele.value;
+          //   ul.append(li);
+          //   before
+          //   ul.firstElementChild.before(li);
+          //   插入到起始标签的后面就永远是第一条
+
+          // 添加删除留言功能
+          li.innerHTML = ele.value + "<button onclick='del(this.parentNode)'>删除</button>";
+
+          ul.insertAdjacentElement("afterBegin", li);
+          // 4. 清空留言的输入框,为下一次做准备
+          ele.value = null;
+
+          // 5. 重置焦点到留言框中,方便用户更次输入
+          ele.focus();
+        }
+      }
+
+      // 删除功能
+      function del(ele) {
+        // console.log(ele);
+        // 方案1
+        // ele.remove();
+        // 方案2
+        // ele.outerHTML = null;
+
+        // 应该删除前让用户确认一下
+        // console.log(confirm("是否删除?"));
+        // 点击"确定"返回 true , 取消 返回  false
+        // if (confirm("是否删除?")) {
+        //   ele.remove();
+        // }
+        return confirm("是否删除?") ? ele.remove() : false;
+      }
+    </script>
+  </body>
+</html>

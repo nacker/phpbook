@@ -1,0 +1,155 @@
+/* ! 1. 页眉中的顶部导航 */
+header .top {
+  /* 固定定位 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  /* 因为用了固定定位,导致页脚不受body中的宽高限制,所以要再次限制一下 */
+  max-width: 750px;
+  min-width: 320px;
+  margin: auto;
+  z-index: 99;
+
+  background-color: #fff;
+
+  /* 顶部高度为40px  */
+  /* 40px自动换算为0.4rem  */
+  height: 0.4rem;
+  padding: 0 0.1rem;
+
+  /* 单行排列,flex方便些 */
+  display: flex;
+  /* 所有项目垂直居中 */
+  place-items: center;
+}
+header .top a.active {
+  color: rgb(255, 10, 10);
+  border-bottom: 2px solid rgb(255, 10, 10);
+}
+header .top a:hover {
+  color: rgb(255, 10, 10);
+}
+/* 为每个导航添加右边距20px,但最后一个图标不要加 */
+header .top a:not(a:last-of-type) {
+  margin-right: 0.2rem;
+}
+/* 将最后的图标放到最右边 */
+header .top a:last-of-type {
+  margin-left: auto;
+}
+
+/* 最后一个钟的图标大一些,例如20px  */
+header .top a:last-of-type span {
+  font-size: 0.2rem;
+}
+
+/* ! 2. 搜索框 */
+header .search {
+  background-color: #eee;
+  margin: 0.4rem 0.1rem 0.1rem;
+  padding: 0.05rem;
+  border-radius: 0.05rem;
+  color: #aaa;
+  display: flex;
+  place-items: center;
+}
+
+/* ! 3. 轮播图 */
+
+header .slider {
+  padding: 0 0.1rem;
+}
+
+header .slider .imgs {
+  /* 图片容器必须要有高度,否则下面图片不能正常显示 */
+  height: 1.5rem;
+}
+
+header .slider .imgs img {
+  /* 图片完全充满父级空间显示 */
+  height: 100%;
+  width: 100%;
+  /* 图片带有圆角 */
+  border-radius: 0.1rem;
+  /* 默认图片全部隐藏,只有有active的图片才显示 */
+  display: none;
+}
+
+/* 默认显示第一张 */
+header .slider .imgs img.active {
+  display: block;
+}
+/* 轮播图按钮组 */
+header .slider .btns {
+  /* 按钮水平一排显示,用flex,且水平居中 */
+  display: flex;
+  place-content: center;
+}
+header .slider .btns span {
+  /* 按钮宽高相同,确定显示成一个正圆 */
+  width: 0.08rem;
+  height: 0.08rem;
+  /* 加上红色背景和数字是为了布局时可以看到,一会更去掉 */
+  /* background-color: red; */
+  background-color: rgba(255, 255, 255, 0.4);
+  /* 50%可确保显示为正圆 */
+  border-radius: 50%;
+  /* 按钮上外边距负值,可将它上移,可移动到图片中下方 */
+  margin: -0.12rem 0.03rem 0.05rem;
+}
+header .slider .btns span.active {
+  background-color: #fff;
+}
+
+/* ! 4. 公告 */
+
+header .tips {
+  height: 0.3rem;
+  padding: 0.1rem;
+  /* flex布局,且垂直居中 */
+  display: flex;
+  place-items: center;
+}
+/* 前面还用那个小钟的图标 */
+header .tips span:first-of-type {
+  color: rgb(245, 30, 30);
+  /* 图标大一点 */
+  font-size: 0.18rem;
+  margin-right: 0.06rem;
+}
+
+/* ! 5. 导航分组 */
+
+/* 整体用grid,每个导航用flex  */
+header nav.main {
+  /* 二行四列 */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* 第行1rem高度,行数量由项目自动计算确定,当前8个共2行 */
+  grid-auto-rows: 0.8rem;
+}
+
+header nav.main a {
+  display: grid;
+  place-items: center;
+}
+header nav.main a:hover {
+  color: rgb(233, 20, 20);
+}
+header nav.main a span:first-of-type {
+  font-size: 0.2rem;
+  padding: 0.08rem 0.1rem;
+  /* 为了简化,方便演示,这里将全部图标设置为统一的背景,向左上角渐变 */
+  background: linear-gradient(to top left, lightgreen, seagreen);
+  border-radius: 0.15rem;
+  color: #fff;
+}
+
+/* 如果要为每一个图标设置不同的背景色也很简单 */
+/* 例如为第一个设置 */
+header nav.main a:first-of-type span:first-of-type {
+  background: linear-gradient(to top left, wheat, coral);
+}
+/* 后面大家自行完成 */

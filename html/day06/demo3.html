@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>定位与定位元素</title>
+  </head>
+  <body>
+    <!-- 文档流: 显示顺序与书写顺序一致 -->
+    <!-- position: static 静态定位,默认  -->
+    <div class="box parent">
+      <div class="box child first"></div>
+      <div class="box child"></div>
+    </div>
+  </body>
+</html>
+
+<style>
+  body {
+    border: 1px solid #000;
+  }
+  .box {
+    border: 1px solid #000;
+  }
+  .box.parent {
+    width: 300px;
+    height: 400px;
+    background-color: lightcyan;
+  }
+  .box.child {
+    width: 150px;
+    height: 150px;
+    background-color: yellow;
+  }
+  .box.child.first {
+    background-color: lightgreen;
+
+    /* 1. 相对定位 */
+    position: relative;
+    top: 30px;
+    left: 30px;
+    /* 相对定位元素仍然在文档流中,所占空间不释放,只有相对原位置进行了偏移 */
+
+    /* 2. 绝对定位 */
+    position: absolute;
+    /* 绝对定位, 不再相对于自身, 而是相对于它的包含块 */
+    /* 它有二个包含块(父级), .parent, body ?  */
+    /* 而能充当绝对定位包含块的元素, 必须是"定位元素" */
+
+    /* 定位元素: position 不能是 static 就可以了 */
+
+    /* 如果绝对定位元素, 一直向上,找不到可定位的父级元素,就相对于body  */
+  }
+
+  .box.parent {
+    /* 设置定位参考父级/包含块 */
+    position: relative;
+  }
+
+  /* 相对定位: 相对自身, 在文档流中
+  约定定位: 相对包含块, 不在文档流中 */
+
+  .box.child.first {
+    position: fixed;
+  }
+
+  /* 固定定位: 是绝对定位的子集, 只不过他的定位包含块是固定的,永远是body */
+</style>

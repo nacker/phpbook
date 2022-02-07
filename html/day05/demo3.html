@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 第一步, 引入字体图标的css  -->
+    <link rel="stylesheet" href="./font_icon/iconfont.css" />
+    <title>字体图标</title>
+  </head>
+  <body>
+    <!-- 字体图标: 字体式的图标, 本质上仍是字体/文本 -->
+
+    <!-- 第二步: 引用图标class -->
+    <p>
+      <!-- 第一个class必须是 iconfont  -->
+      <!-- 第二个是具体的图标类名 -->
+      <span class="iconfont icon-gouwuchekong"></span>
+    </p>
+
+    <p>
+      <span class="iconfont icon-icon-15 like"></span>
+    </p>
+
+    <style>
+      .iconfont.icon-gouwuchekong {
+        font-size: 30px;
+        color: red;
+      }
+      .like {
+        font-size: 50px;
+        color: green;
+      }
+    </style>
+
+    <script src="./font_icon/iconfont.js"></script>
+    <svg class="icon" aria-hidden="true">
+      <use xlink:href="#icon-icon-08"></use>
+    </svg>
+  </body>
+</html>

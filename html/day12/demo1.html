@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>获取表单元素</title>
+    <style>
+      .login {
+        width: 15em;
+        border: 1px solid #888;
+        border-radius: 0.5em;
+        box-shadow: 5px 5px 5px #888;
+        display: grid;
+        grid-template-columns: 3em 1fr;
+        gap: 0.5em 1em;
+      }
+      .login legend {
+        padding: 0 0.5em;
+        text-align: center;
+        margin-bottom: 0.5em;
+        font-weight: bolder;
+      }
+      .login button {
+        grid-column: 2;
+      }
+      .login button:hover {
+        cursor: pointer;
+        background-color: lightcyan;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="login.php" method="post" id="login">
+      <fieldset class="login">
+        <legend>请登录</legend>
+        <label for="email">邮箱:</label>
+        <input type="email" name="email" id="email" value="admin@php.cn" autofocus />
+        <label for="password">密码:</label>
+        <input type="password" name="password" id="password" value="123456" />
+        <button>提交</button>
+      </fieldset>
+    </form>
+    <script>
+      // TODO 传统方式
+      //   let form = document.querySelector("#login");
+      //   console.log(form);
+      // 控件的值
+      //   console.log(form.querySelector("#email").value);
+
+      // TODO 推荐方式
+      //   console.log(document.forms[0]);
+      // form.id
+      //   console.log(document.forms.login);
+      // input:name,此时 name 相当于 id
+      //   console.log(document.forms.login.email);
+      // value
+      //   console.log(document.forms.login.email.value);
+
+      // 前后端数据交互, json
+      let login = document.forms.login;
+      let email = login.email.value;
+      let password = login.password.value;
+      console.log(email, password);
+
+      //   let user = { email: email, password: password };
+      let user = { email, password };
+
+      // 提交到服务器端/后端: json
+      let data = JSON.stringify(user, null, 2);
+      console.log(data);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>表格的常用样式</title>
+    <style>
+      /* 1. 添加表格线,添加到单元格上就可以了 */
+      td,
+      th {
+        border: 1px solid #000;
+      }
+
+      /* 2. 折叠表格线之间的间隙 */
+      table {
+        border-collapse: collapse;
+        width: 90%;
+        text-align: center;
+        margin: 2em auto;
+      }
+
+      /* 3. 标题 */
+      table caption {
+        font-weight: bolder;
+        margin-bottom: 1em;
+      }
+
+      /* 4. 表头背景 */
+      table thead {
+        background-color: lightgreen;
+      }
+
+      /* 5. 为上午和下行的单元格设置背景色 */
+      .period {
+        background-color: -lightblue;
+      }
+      /* 使用伪类来实现 */
+      table tbody:not(tbody:nth-of-type(2)) tr:first-of-type td:first-of-type {
+        background-color: lightblue;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <caption>
+        合肥市南门小学五年级课程表
+      </caption>
+      <thead>
+        <tr>
+          <th>时间</th>
+          <th>周一</th>
+          <th>周二</th>
+          <th>周三</th>
+          <th>周四</th>
+          <th>周五</th>
+        </tr>
+      </thead>
+      <!-- 上午 -->
+      <tbody>
+        <tr>
+          <td rowspan="4" class="period">上午</td>
+          <td>数学</td>
+          <td>数学</td>
+          <td>数学</td>
+          <td>数学</td>
+          <td>数学</td>
+        </tr>
+        <tr>
+          <td>数学</td>
+          <td>数学</td>
+          <td>数学</td>
+          <td>数学</td>
+          <td>数学</td>
+        </tr>
+        <tr>
+          <td>数学</td>
+          <td>数学</td>
+          <td>数学</td>
+          <td>数学</td>
+          <td>数学</td>
+        </tr>
+        <tr>
+          <td>数学</td>
+          <td>数学</td>
+          <td>数学</td>
+          <td>数学</td>
+          <td>数学</td>
+        </tr>
+      </tbody>
+      <!-- 中午 -->
+      <tbody>
+        <tr>
+          <td colspan="6">中午休息</td>
+        </tr>
+      </tbody>
+      <!-- 下午 -->
+      <tbody>
+        <tr>
+          <td rowspan="3" class="period">下午</td>
+          <td>数学</td>
+          <td>数学</td>
+          <td>数学</td>
+          <td>数学</td>
+          <td>数学</td>
+        </tr>
+        <tr>
+          <td>数学</td>
+          <td>数学</td>
+          <td>数学</td>
+          <td>数学</td>
+          <td>数学</td>
+        </tr>
+        <tr>
+          <td>数学</td>
+          <td>数学</td>
+          <td>数学</td>
+          <td>数学</td>
+          <td>数学</td>
+        </tr>
+      </tbody>
+      <!-- 表尾 -->
+      <tfoot>
+        <tr>
+          <td>备注:</td>
+          <td colspan="5">每天下午15:30-17:30在校写作业</td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js操作class属性: classList对象</title>
+    <style>
+      .red {
+        color: red;
+      }
+      .bgc {
+        background-color: yellow;
+      }
+      .blue {
+        color: blue;
+      }
+      .bd {
+        border: 5px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>hello</h2>
+    <!-- <h2 class="bd">hello</h2> -->
+
+    <script>
+      // 1.传统方式
+      const h2 = document.querySelector("h2");
+      //   h2.className = "red bgc";
+
+      // 2. classList
+      // add: 添加class
+      h2.classList.add("red");
+      h2.classList.add("bgc");
+
+      // contains: 判断
+      console.log(h2.classList.contains("bgc"));
+
+      // remove: 移除class
+      h2.classList.remove("bgc");
+
+      // replace: 替换class
+      h2.classList.replace("red", "blue");
+
+      // toggle: 切换 class
+      // 如果已存在 bd, 则执行remove 移除操作, 否则执行 add 添加操作
+      h2.classList.toggle("bd");
+    </script>
+  </body>
+</html>

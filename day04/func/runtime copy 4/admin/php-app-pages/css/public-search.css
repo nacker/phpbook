@@ -1,0 +1,17 @@
+/* ! 顶部搜索框 */
+header .search {
+  display: flex;
+  place-content: space-between;
+  place-items: center;
+}
+header .search .input {
+  flex: 1;
+  background-color: #ddd;
+  margin: 0.1rem;
+  padding: 0.05rem;
+  border-radius: 0.05rem;
+  color: #aaa;
+}
+header .search .iconfont.icon-zhong {
+  font-size: 0.2rem;
+}

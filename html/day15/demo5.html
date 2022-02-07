@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>根据Promise的状态触发不同的回调</title>
+  </head>
+  <body>
+    <script>
+      let promise = new Promise((resolve, reject) => {});
+      promise.then(data => console.log(data));
+      promise.catch(err => console.log(err));
+
+      //   then: 成功
+      //   catch: 失败
+
+      console.log(promise);
+
+      // fulfilled
+      promise = new Promise((resolve, reject) => resolve("成功"));
+      console.log(promise);
+
+      // rejected
+      promise = new Promise((resolve, reject) => reject("失败"));
+      console.log(promise);
+
+      // Promise.resolve
+      // Promise.reject
+
+      promise = Promise.resolve("成功");
+      console.log(promise);
+      promise = Promise.reject("失败");
+      console.log(promise);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>作业2: 用户登录表单</title>
+    <style>
+      body {
+        text-align: center;
+        background-color: #efe;
+      }
+      .login {
+        display: inline-block;
+        margin-top: 2em;
+      }
+      .login .group {
+        border: 1px solid #ccc;
+        box-shadow: 0 0 5px #888;
+        padding: 1em 3em;
+        background-color: lightcyan;
+        border-radius: 0.5em;
+        display: grid;
+      }
+
+      .login .group .title {
+        padding: 0.5em 1.5em;
+        background-color: lightgreen;
+        /* text-align: left; */
+        box-shadow: 3px 3px 3px #888;
+        border-top-left-radius: 1em;
+        border-bottom-right-radius: 1em;
+      }
+      .login .group .user-info {
+        display: grid;
+        gap: 1em;
+      }
+
+      .login .group input {
+        border: none;
+        border-bottom: 1px solid;
+        background-color: lightcyan;
+        outline: none;
+      }
+
+      .login .group .submit {
+        border: none;
+        outline: none;
+        height: 2.2em;
+        background-color: seagreen;
+        color: white;
+        width: 81%;
+        margin-top: 1em;
+        margin-left: auto;
+      }
+      .login .group .submit:hover {
+        cursor: pointer;
+        background-color: coral;
+        box-shadow: 0 0 3px #888;
+        transition: 0.3s;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="" method="post" class="login">
+      <fieldset class="group">
+        <legend class="title">用户登录</legend>
+        <div class="user-info">
+          <div>
+            <label for="email">邮箱:</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="username@email.com"
+              autofocus
+              required
+            />
+          </div>
+          <div>
+            <label for="password">密码:</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="******"
+              required
+            />
+          </div>
+        </div>
+        <button class="submit">提交</button>
+      </fieldset>
+    </form>
+
+    <style></style>
+  </body>
+</html>

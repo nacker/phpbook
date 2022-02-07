@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自定义属性: dataset对象</title>
+  </head>
+  <body>
+    <!-- 
+      * 元素属性有二类:
+      * 1. 内置的预定义属性, 如 id, class,title,style等
+      * 2. 用户自定义属性,主要用于js脚本控制, 以 "data-""为前缀,如 data-key 
+     -->
+
+    <div class="btn-group">
+      <!-- onclick: 内置/预定义事件属性 -->
+      <!-- data-index: 自定义属性 -->
+      <button data-index="1" onclick="getIndex(this)">btn1</button>
+      <button data-index="2" onclick="getIndex(this)">btn2</button>
+      <button data-index="3" onclick="getIndex(this)">btn3</button>
+    </div>
+
+    <!-- 自定义属性还可以将一些数据保存到标签中 -->
+    <!-- data-emial, data-work-unit  -->
+    <div class="user" data-email="498668472@qq.com" data-work-unit="php中文网">猪老师</div>
+
+    <script>
+      function getIndex(btn) {
+        // 通过自定义属性data-index的值,知道我点的是哪一个?
+        // dataset.prop, "data-"一定要省略掉
+        console.log("点击了第 ", btn.dataset.index, " 个按钮");
+      }
+
+      const user = document.querySelector(".user");
+
+      console.log(user.dataset.email);
+      //   work-unit ==> workUnit
+      console.log(user.dataset.workUnit);
+
+      // dataset 可读可写
+      user.dataset.workUnit = "php.cn";
+      console.log(user.dataset.workUnit);
+    </script>
+  </body>
+</html>

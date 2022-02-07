@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ajax-xhr</title>
+  </head>
+  <body style="display: grid; gap: 1em">
+    <button onclick="getUser1(this)">查询用户信息 - XHR</button>
+    <button onclick="getUser2(this)">查询用户信息 - Fetch</button>
+    <script>
+      // 1. 传统 XHR
+      /**
+       * 1. 创建对象: new XMLHttpRequest();
+       * 2. 响应类型: xhr.responseType = "json";
+       * 3. 配置参数: xhr.open("GET", url, true);
+       * 4. 请求回调: xhr.onload = () => console.log(xhr.response);
+       * 5. 失败回调: xhr.onerror = () => console.log("Error");
+       * 6. 发起请求: xhr.send(null);
+       *
+       * xhr 至少监听2个事件: load,error, 调用2个函数: open,send
+       * post请求,需要设置一下请求头与请求的数据,其它与get请求完全相同
+       */
+
+      function getUser1(btn) {
+        // 1. 创建对象:
+        const xhr = new XMLHttpRequest();
+        // 2. 响应类型:
+        xhr.responseType = "json";
+        // 3. 配置参数:
+        let url = "http://website.io/users.php";
+        url = "http://website.io/users.php?id=100";
+        xhr.open("GET", url, true);
+        // 4. 请求回调:
+        xhr.onload = () => {
+          console.log(xhr.response);
+          // 渲染到页面中
+          render(xhr.response, btn);
+        };
+        // 5. 失败回调:
+        xhr.onerror = () => console.log("Error");
+        // 6. 发起请求:
+        xhr.send(null);
+      }
+      // 2. 现代 Fetch
+
+      /** 语法:
+          fetch(...)
+          .then(...)
+          .then(...)
+          .catch(...)
+      */
+
+      function getUser2(btn) {
+        // 无GET参数,则返回全部用户,用表格展示
+        let url = "http://website.io/users.php";
+        // 有GET参数,则返回指定用户,如?id=1,返回id=1的用户信息
+        url = "http://website.io/users.php?id=2";
+        fetch(url)
+          .then(response => response.json())
+          .then(json => {
+            console.log(json);
+            // 渲染到页面中
+            render(json, btn);
+          })
+          .catch(err => console.log("Fetch Error", err));
+      }
+    </script>
+    <script src="function.js"></script>
+  </body>
+</html>

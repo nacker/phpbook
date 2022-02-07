@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>checkbox复选框做一个下拉菜单/折叠</title>
+    <style>
+      /* 将复选框隐藏起 */
+      input[type="checkbox"] {
+        display: none;
+      }
+      input[type="checkbox"]:checked ~ ul {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <label for="menu">菜单</label>
+    <input type="checkbox" id="menu" />
+    <ul>
+      <p>Hellllllldlddddddddddd</p>
+      <p>Hellllllldlddddddddddd</p>
+      <p>Hellllllldlddddddddddd</p>
+      <p>Hellllllldlddddddddddd</p>
+      <p>Hellllllldlddddddddddd</p>
+      <p>Hellllllldlddddddddddd</p>
+    </ul>
+  </body>
+</html>

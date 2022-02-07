@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../font_icon/iconfont.css" />
+    <link rel="stylesheet" href="../css/study.css" />
+    <title>学习列表页</title>
+  </head>
+  <body>
+    <!-- todo 页眉 -->
+    <header>
+      <div class="top">
+        <span class="title">我的学习</span>
+        <div class="zhengshu">
+          <span class="iconfont icon-zhengshu"></span>
+          <span>我的证书</span>
+        </div>
+      </div>
+      <div class="total">
+        <dl>
+          <dd>11&nbsp;<small>天</small></dd>
+          <dt>累计学习</dt>
+        </dl>
+        <dl>
+          <dd>0&nbsp;<small>分钟</small></dd>
+          <dt>累计学习</dt>
+        </dl>
+      </div>
+    </header>
+
+    <!-- todo 主体 -->
+    <main>
+      <!-- 顶部标题 -->
+      <div class="top">
+        <div class="title" onclick="location.href='learned.html'">
+          <span class="iconfont icon-xuexi"></span>
+          <span>最近已学</span>
+        </div>
+        <span class="iconfont icon-youjiantou"></span>
+      </div>
+
+      <!-- 已学课程列表 -->
+      <div class="learned">
+        <div class="first" onclick="location.href='xxx.html'">
+          <div class="imgs">
+            <img src="../images/course1.jpg" alt="" />
+            <span class="iconfont icon-24gf-playCircle"></span>
+            <span class="date">已学4/35节</span>
+          </div>
+
+          <div class="desc">
+            <span class="title">最新大前端开发实战_第十八期PHP中文网年终决战课程</span>
+            <span class="info">搜索功能的实现</span>
+            <span class="tips">继续学习</span>
+          </div>
+        </div>
+
+        <ul class="list">
+          <li class="item" onclick="location.href='#'">
+            <div class="imgs">
+              <img src="../images/course2.jpg" alt="" />
+              <span class="iconfont icon-24gf-playCircle"></span>
+              <span class="date">已学4/35节</span>
+            </div>
+            <span class="title">从零制作响应式</span>
+          </li>
+          <li class="item" onclick="location.href='#'">
+            <div class="imgs">
+              <img src="../images/course3.jpg" alt="" />
+              <span class="iconfont icon-24gf-playCircle"></span>
+              <span class="date">已学4/35节</span>
+            </div>
+            <span class="title">第一期_大前端...</span>
+          </li>
+          <li class="item" onclick="location.href='#'">
+            <div class="imgs">
+              <img src="../images/course4.jpg" alt="" />
+              <span class="iconfont icon-24gf-playCircle"></span>
+              <span class="date">已学4/35节</span>
+            </div>
+            <span class="title">从零制作响应式</span>
+          </li>
+          <li class="item" onclick="location.href='#'">
+            <div class="imgs">
+              <img src="../images/course5.jpg" alt="" />
+              <span class="iconfont icon-24gf-playCircle"></span>
+              <span class="date">已学4/35节</span>
+            </div>
+            <span class="title">前端真美丽...</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- ? 学习中心 -->
+      <div class="learn-hub">
+        <!-- 标题 -->
+        <div class="title">
+          <span class="iconfont icon-chakankucun"></span>
+          <span>学习中心</span>
+        </div>
+        <!-- 课程列表 -->
+        <div class="list">
+          <li class="item" onclick="location.href='purchased.html'">
+            <span class="iconfont icon-gouwuche"></span>
+            <span class="title">已购课程</span>
+          </li>
+          <li class="item" onclick="location.href='reserve.html'">
+            <span class="iconfont icon-zhibo-01"></span>
+            <span class="title">预约直播</span>
+          </li>
+          <li class="item" onclick="location.href='collection.html'">
+            <span class="iconfont icon-shoucang"></span>
+            <span class="title">我的收藏</span>
+          </li>
+          <li class="item" onclick="location.href='follow.html'">
+            <span class="iconfont icon-guanzhu"></span>
+            <span class="title">关注讲师</span>
+          </li>
+        </div>
+      </div>
+    </main>
+
+    <!-- todo 底部 -->
+    <!-- ? 将第4个"学习"菜单设置为激活状态active -->
+    <footer>
+      <div class="item" onclick="location.href= 'index.html'">
+        <span class="iconfont icon-shouye"></span>
+        <span>首页</span>
+      </div>
+      <div class="item" onclick="location.href='category.html'">
+        <span class="iconfont icon-fenlei"></span>
+        <span>分类</span>
+      </div>
+      <div class="item" onclick="location.href='live.html'">
+        <span class="iconfont icon-zhibo-01"></span>
+        <span>直播</span>
+      </div>
+      <div class="item active" onclick="location.href='study.html'">
+        <span class="iconfont icon-xuexi"></span>
+        <span>学习</span>
+      </div>
+      <div class="item" onclick="location.href='user.html'">
+        <span class="iconfont icon-wode"></span>
+        <span>我的</span>
+      </div>
+    </footer>
+  </body>
+</html>

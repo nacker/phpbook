@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>选择器的权重(重点)</title>
+  </head>
+  <body>
+    <h1 class="title" id="active">Hello</h1>
+
+    <style>
+      /* 1 1 2 */
+      /* 2: 表示2个标签, 
+      1: 表示1个class
+      1: 表示1个id  */
+      body h1.title#active {
+        color: red;
+      }
+      /* 0 1 2 */
+      /* 2: 表示2个标签, 
+      1: 表示1个class
+      0: 表示没有id  */
+      body h1.title {
+        color: blue;
+      }
+      /* 就想放在第一行,又想让它生效,只有提权 */
+      /* 0 0 2 */
+      /* 2: 表示2个标签, 
+      0: 表示没有class
+      0: 表示没有id  */
+      body h1 {
+        color: green;
+      }
+      /* 相同的权重,由位置决定样式 */
+      /* 0 0 1 */
+      /* 1: 表示只有一个标签, 
+      0: 表示没有class
+      0: 表示没有id  */
+      h1 {
+        color: darkorange;
+      }
+
+      /* 三个权重的位置, 从右到左
+      第1位: 标签数量
+      第2位: class数量
+      第3位: id数量 */
+
+      /* css 将 id, class, tag 看成一个"三位整数", id -> 百位, class -> 十位, tag -> 个位 */
+
+      /* h1 {
+        color: violet !important;
+      } */
+
+      /* id : 为什么不推荐用? 因为权重太高, 为了让你的代码具有弹性,尽可能用class */
+      /* 为什么不用权重最低的标签呢? 只是标签的数量太少了, 而class可以任何命名 */
+
+      /* bootstrap , element ui  */
+    </style>
+
+    <div class="col-md-3 vip">Bootstrap</div>
+
+    <style>
+      /* 0 2 1 */
+      div.col-md-3.vip {
+        border: 5px solid red;
+      }
+      /* 0 1 1  */
+      div.col-md-3 {
+        border: 1px solid #000;
+      }
+    </style>
+  </body>
+</html>

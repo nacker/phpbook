@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>选择器2: 上下文选择器/层级选择器</title>
+  </head>
+  <body>
+    <ul class="list">
+      <li class="item">item1</li>
+      <li class="item second">item2</li>
+      <li class="item">
+        item3
+        <!-- <ul class="inner">
+          <li>item3-1</li>
+          <li>item3-2</li>
+          <li>item3-3</li>
+        </ul> -->
+      </li>
+      <li class="item">item4</li>
+      <li class="item">item5</li>
+      <li class="item">item6</li>
+      <li class="item">item7</li>
+      <li class="item">item8</li>
+    </ul>
+
+    <style>
+      /* 1. 子元素f > */
+      .list > li {
+        border: 1px solid #000;
+      }
+
+      /* 2. 后代元素: 空格 */
+      .list li {
+        border: 1px solid #000;
+      }
+
+      /* 3. 相邻兄弟: +  */
+      .item.second + * {
+        background-color: lightcyan;
+      }
+
+      /* 4. 所有兄弟: ~  */
+      .item.second ~ * {
+        background-color: yellow;
+      }
+    </style>
+  </body>
+</html>

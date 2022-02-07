@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>子组件传参</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div class="app">
+        <button-counter username="admin" email="admin@qq.com"></button-counter>
+    </div>
+
+    <template id="counter">
+      <button @click="count++">点赞: {{count}}</button>
+      <p>用户: {{username}}</p>
+      <p>邮箱: {{email}}</p>
+    </template>
+
+    <script>
+        // 1. 创建实例
+        const app = Vue.createApp({})
+
+        // 2. 注册组件
+        app.component('ButtonCounter', {
+            props: ['username', 'email'],
+            template: '#counter',
+            data() {
+                return {
+                    count: 0,
+                }
+            },
+        })
+
+        // 3. 绑定挂载点
+        app.mount('.app')
+    </script>
+</body>
+
+</html>

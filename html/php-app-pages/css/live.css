@@ -1,0 +1,147 @@
+@import url("public-search.css");
+@import url("public-footer.css");
+
+/* ! 中间分类展示:实际上是一个选项卡 */
+main {
+  padding: 0.1rem;
+}
+
+/* * 顶部按钮 */
+main .btns {
+  /* 使用网格,四等份放置按钮 */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 0.3rem;
+
+  /* 添加下边距,与列表保持间隙 */
+  margin-bottom: 0.15rem;
+}
+main .btns .btn {
+  padding: 0.05rem 0;
+  border-radius: 0.1rem;
+  background-color: #ddd;
+  text-align: center;
+}
+/* 激活样式 */
+main .btns .btn.active {
+  background-color: rgb(237, 209, 214);
+  color: red;
+}
+/* 悬停样式 */
+main .btns .btn:hover {
+  cursor: pointer;
+  background-color: rgb(237, 209, 214);
+  color: red;
+}
+
+/* ! 与按钮对应的列表 */
+main {
+  /* 使高度适度大于视口高度,以防止页尾挡住部分内容 */
+  /* 究竟多少合适,大家可自行测试 */
+  height: calc(100vh + 1.2rem);
+  /* 或者直接写一个合适的vh值, vh可以大于100的 */
+  height: 115vh;
+}
+main .container .list .item {
+  /* 使用grid布局 */
+  display: grid;
+  /* 第一列是课程图片,宽度限制在0.8-.15rem之间,第二列自适应 */
+  grid-template-columns: minmax(0.8rem, 1.5rem) 1fr;
+  column-gap: 0.1rem;
+
+  /* 每个课程之间的间隙 */
+  margin: 0.2rem 0;
+}
+main .container .list .item:hover {
+  cursor: pointer;
+  background-color: #ddd;
+}
+main .container .list img {
+  width: 100%;
+  border-radius: 0.1rem;
+}
+
+/* ? 每个课程中,左侧的图片组样式(包括字体图标等) */
+main .container .list .item .imgs {
+  /* 定位父级,用于将播放图标和日期文本显示到图片中 */
+  position: relative;
+  /* 去掉图片容器的底部多出的几个像素 */
+  font-size: 0;
+}
+
+/* 播放图标 */
+main .container .list .item .imgs span:first-of-type {
+  font-size: 0.3rem;
+  /* 绝对定位到课程图标的中间位置:水平垂直居中 */
+  position: absolute;
+  /* left,right都为0,设置了一个水平定位的边界参考 */
+  left: 0;
+  right: 0;
+  text-align: center;
+  /* 垂直居中: 容器高度(100%)的一半,再减去字体图标字号的一半,就可实现垂直居中 */
+  top: calc(calc(100% / 2) - 0.15rem);
+}
+
+/* 标题图片底部的日期,同样使用绝对定位 */
+main .container .list .item .imgs .date {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  /* 因为容器字号为0,而font-size是继承属性,所以这里要重新设置一下,否则看不到了 */
+  font-size: 0.11rem;
+  /* 圆角 */
+  border-bottom-left-radius: 0.1rem;
+  border-bottom-right-radius: 0.1rem;
+  /* 文本水平居中 */
+  text-align: center;
+  /* 加间间隙文本文本不要太靠边啦 */
+  padding: 0.03rem 0;
+}
+
+/* ? 每个课程的右边的描述部分 */
+/* 将所有内容看成一个3行2列的网格,比较方便 */
+main .container .list .desc {
+  display: grid;
+  /* 2列, 行数,由网格根据项目数量,自动生成 */
+  grid-template-columns: repeat(2, 1fr);
+  /* 所有项目: 垂直居中, 水平居左 */
+  place-items: center start;
+}
+
+/* 课程标题,跨2列 */
+main .container .list .desc .title {
+  grid-column: span 2;
+}
+main .container .list .desc .type {
+  font-size: smaller;
+  color: red;
+}
+main .container .list .desc .status {
+  width: 0.5rem;
+  font-size: smaller;
+  place-self: center end;
+  text-align: center;
+  color: white;
+  padding: 0.03rem 0.01rem;
+  border-top-left-radius: 0.06rem;
+  border-bottom-right-radius: 0.06rem;
+  background: linear-gradient(to bottom right, rgb(233, 136, 91), rgb(235, 76, 18));
+}
+/* 最后的感兴趣人数,也要跨2列 */
+main .container .list .desc .iconfont.icon-wode {
+  grid-column: span 2;
+  place-self: center end;
+  font-size: smaller;
+}
+
+/* 初始化时,列表全部隐藏 */
+main .container .list {
+  display: none;
+}
+/* 只有具有active类的列表显示,这是默认的第一个列表 */
+main .container .list.active {
+  display: block;
+}

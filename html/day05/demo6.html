@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>header</header>
+    <aside class="left">left</aside>
+    <main>main</main>
+    <aside class="right">right</aside>
+    <footer>footer</footer>
+
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      header,
+      footer {
+        background-color: lightgreen;
+      }
+
+      body {
+        display: grid;
+        grid-template-columns: 6em 1fr 6em;
+        grid-template-rows: 2em minmax(20em, 30em) 2em;
+      }
+
+      aside {
+        background-color: lightblue;
+      }
+
+      main {
+        background-color: yellow;
+      }
+
+      header,
+      footer {
+        grid-column: span 3;
+      }
+    </style>
+  </body>
+</html>

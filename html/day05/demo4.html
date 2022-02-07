@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>盒模型</title>
+  </head>
+  <body>
+    <div class="box"></div>
+    <style>
+      /* 盒模型常用属性
+      1. width
+      2. height
+      3. border
+      4. padding
+      5. margin
+      */
+
+      .box {
+        width: 200px;
+        height: 200px;
+        /* border: 10px solid #000; */
+        background-color: violet;
+        border: 10px dashed currentColor;
+        background-clip: content-box;
+        /* padding: 内边距,呼吸区 */
+        padding: 20px;
+
+        /* 当前盒子总宽度: 200 + 20*2 + 10*2 = 260px  */
+
+        /* 改变盒子大小的计算方式,使用户设置width,height就是盒子的实际大小,以方便计算与布局 */
+
+        box-sizing: border-box;
+        /* 此时, width, heigth设置的盒子大小, 就是最终的计算尺寸 */
+        /* 当前盒子总宽度: 140 + 20*2 + 10*2 = 200px  */
+        /* 计算出来的200px, 就是width=200px  */
+      }
+      .box {
+        /* 四值 , 顺时针 */
+        /* padding: 上 右 下 左 ; */
+        padding: 5px 10px 15px 20px;
+
+        /* 三值 , 中间表示左右*/
+        padding: 5px 10px 15px;
+
+        /* 双值: 第1个上下,第2个左右 */
+        padding: 5px 10px;
+
+        /* 单值, 四个方向全一样 */
+        padding: 5px;
+
+        /* padding: 是透明的,只有宽度可以设置 */
+      }
+      .box {
+        /* 边框有视觉效果,有宽度, 样式, 颜色 */
+        /* border-top-width: 20px;
+        border-top-style: solid;
+        border-top-color: red; */
+        border-top: 20px solid red;
+
+        border: 5px solid green;
+      }
+
+      /* 样式重置的简化通用方案 */
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      .box {
+        /* margin 与 padding是一样,只不过它在边框外部, 是外边距, 控制多个盒子之间的间隔; */
+        margin: 10px;
+      }
+    </style>
+  </body>
+</html>

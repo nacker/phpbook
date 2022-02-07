@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>元素样式的来源</title>
+    <link rel="stylesheet" href="css/style1.css" />
+  </head>
+  <body>
+    <h1 style="color: green">Hello world</h1>
+    <h1>Hello world</h1>
+    <!-- 
+        样式来源
+        1. 浏览器默认: 用户代理样式 
+        2. 用户自定义样式 
+    -->
+
+    <h1>php.cn</h1>
+    <h1>前端开发教程</h1>
+
+    <!-- 当前是HTML, 结构化的文本文档,它内部的所有元素,必须使用"标签"进行描述 -->
+    <!-- 只要放到了html中内容,并且要被浏览器进行解析或处理的,就必须要放到一个"标签"  -->
+    <style>
+      /* 1. 查询: 找到要被添加样式的元素 */
+      /* selector : 选择器 */
+
+      /* h1 : 标签/元素选择器 */
+      /* 2. 为匹配的元素,设置样式规则 */
+      /* 样式规则: 放入一对大括号中 */
+      /* h1 { */
+      /* 样式声明: 使用是"名值对" */
+      /* color: red; */
+      /* } */
+
+      /* 选择器 {
+          一个或多个样式声明
+      } */
+
+      /* css工作流:  1. 找到元素;  2. 设置样式  */
+    </style>
+
+    <!-- style属性的优先级要大于  style 标签  -->
+
+    <!-- style="..." : 行内样式/内联样式, 直接作用到"元素级" -->
+    <!-- <style>: 内部样式/文档样式, 直接作用到"文档级" -->
+  </body>
+</html>

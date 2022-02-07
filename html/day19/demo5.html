@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>计算属性,侦听器属性</title>
+    <style>
+        table {
+            width: 26em;
+            text-align: center;
+            border-collapse: collapse;
+        }
+        
+        table caption {
+            font-size: 1.5em;
+            margin-bottom: 0.6em;
+        }
+        
+        thead {
+            background-color: lightcyan;
+        }
+        
+        th,
+        td {
+            border: 1px solid #000;
+            height: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <table>
+            <caption>
+                购物车
+            </caption>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>品名</th>
+                    <th>单价</th>
+                    <th>数量</th>
+                    <th>金额</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>HA110</td>
+                    <td>伊利纯牛奶</td>
+                    <td>{{price}}</td>
+                    <td><input type="number" v-model="num" style="width: 4em" /></td>
+                    <!-- <td>{{price * num}}</td> -->
+                    <td>{{payAmount}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- 侦听器来监听金额的变化,设置优惠价格:用户实际支付的钱 -->
+        <!-- <p>实付金额: {{disAmount}}, 优惠了 : <span style="color: red">{{payAmount-disAmount}}</span></p> -->
+        <p>实付金额: {{disAmount}}, 优惠了 : <span style="color: red">{{difAmount}}</span></p>
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    price: 50,
+                    num: 0,
+                }
+            },
+
+            // 计算属性: 访问器属性
+            computed: {
+                payAmount: {
+                    get() {
+                        return this.price * this.num
+                    },
+                    set(value) {
+                        // 这个通常用来做测试
+                    },
+                },
+            },
+
+            // 侦听器属性
+            watch: {
+                // current: 新值/当前值, origin: 原值/旧值
+                payAmount(current, origin) {
+                    console.log(current, origin)
+
+                    switch (true) {
+                        case current > 1000 && current < 2000:
+                            this.disAmount = this.payAmount * 0.9
+                            break
+                        case current >= 2000 && current < 3000:
+                            this.disAmount = this.payAmount * 0.8
+                            break
+                        case current >= 3000 && current < 4000:
+                            this.disAmount = this.payAmount * 0.7
+                        case current >= 4000 && current < 5000:
+                            this.disAmount = this.payAmount * 0.6
+                            break
+                        case current >= 5000:
+                            this.disAmount = this.payAmount * 0.5
+                        default:
+                            this.disAmount = this.payAmount
+                    }
+                    this.difAmount = this.payAmount - this.disAmount
+                },
+            },
+
+            // 实例生命周期, mounted: 当vue实例加载完成的时候会自动调用(onload)
+            mounted() {
+                this.num = 1
+            },
+        }).mount('.app')
+    </script>
+</body>
+
+</html>

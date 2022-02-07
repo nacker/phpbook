@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>实战2: 购物车</title>
+    <style>
+      .box {
+        width: 22em;
+        height: 2em;
+      }
+      .list > li {
+        height: 1.6em;
+        background-color: #efefef;
+
+        display: grid;
+        grid-template-columns: repeat(5, 3em);
+        gap: 1em;
+        place-items: center right;
+        border-bottom: 1px solid #ccc;
+      }
+      .list > li:first-of-type {
+        background-color: lightseagreen;
+        color: white;
+      }
+      .list > li:hover:not(:first-of-type) {
+        cursor: pointer;
+        background-color: lightcyan;
+      }
+      .list > li input[type="number"] {
+        width: 3em;
+        border: none;
+        outline: none;
+        text-align: center;
+        font-size: 1em;
+        background-color: transparent;
+      }
+
+      .list > li:last-of-type span.total-num,
+      .list > li:last-of-type span.total-amount {
+        grid-column: span 2;
+        place-self: center right;
+        color: lightseagreen;
+      }
+      .account {
+        float: right;
+        background-color: lightseagreen;
+        color: white;
+        border: none;
+        outline: none;
+        width: 4.5em;
+        height: 1.8em;
+      }
+      .account:hover {
+        background-color: coral;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="selectAll">
+        <input type="checkbox" class="check-all" name="check-all" onchange="checkAll()" checked />
+        <label for="check-all">全选</label>
+      </div>
+      <ul class="list">
+        <li><span>选择</span><span>品名</span><span>数量</span><span>单价</span><span>金额</span></li>
+        <li>
+          <input type="checkbox" onchange="checkItems()" checked />
+          <span class="content">手机</span>
+          <input type="number" value="1" min="1" class="num" />
+          <span class="price">100</span>
+          <span class="amount">0</span>
+        </li>
+        <li>
+          <input type="checkbox" onchange="checkItems()" checked />
+          <span class="content">电脑</span>
+          <input type="number" value="2" min="1" class="num" />
+          <span class="price">200</span><span class="amount">0</span>
+        </li>
+        <li>
+          <input type="checkbox" onchange="checkItems()" checked />
+          <span class="content">相机</span>
+          <input type="number" value="3" min="1" class="num" />
+          <span class="price">300</span>
+          <span class="amount">0</span>
+        </li>
+        <li>
+          <span>总计:</span>
+          <span class="total-num">0</span>
+          <span class="total-amount">0</span>
+        </li>
+      </ul>
+      <button class="account">结算</button>
+    </div>
+
+    <script>
+      // 1. 全选
+      function checkAll() {
+        // 1. 获取当前全选框的状态
+        let status = event.target.checked;
+
+        // 2. 根据这个状态,来动态的设置所有商品的状态
+        const items = document.querySelectorAll(".list li input[type=checkbox]");
+        items.forEach(item => (item.checked = status));
+      }
+
+      // 2. 根据用户选择的每个商品状态来动态设置全选状态
+      function checkItems() {
+        // 1. 获取全部的商品
+        const items = document.querySelectorAll(".list li input[type=checkbox]");
+
+        // 2. 判断状态,只有全部为true,才返回true, array.every
+        let status = [...items].every(item => item.checked === true);
+
+        // 3. 将这个状态添加到全选上
+        document.querySelector(".check-all").checked = status;
+      }
+
+      // ------------  商品的自动计算  -------------------
+
+      // 购物车所有的数据计算的依据是:  基于商品的"数量"的变化
+      const nums = document.querySelectorAll(".num");
+
+      // 1. 计算总数量
+      function getTotalNum(numArr) {
+        return numArr.reduce((acc, cur) => acc + cur);
+      }
+
+      // 2. 计算每个商品的金额
+      function getAmount(numArr, priceArr) {
+        // 金额 = 数量 * 单价
+        return numArr.map((num, index) => num * priceArr[index]);
+      }
+
+      // 3. 计算总金额
+      function getTotalAmount(amountArr) {
+        return amountArr.reduce((acc, cur) => acc + cur);
+      }
+
+      // 4. 自动计算
+      function autoCalculate() {
+        // 数量数组
+        const numArr = [...nums].map(num => parseInt(num.value));
+        // 单价数组
+        const prices = document.querySelectorAll(".price");
+        const priceArr = [...prices].map(price => parseInt(price.textContent));
+
+        // 金额数组
+        const amountArr = getAmount(numArr, priceArr);
+        console.log(amountArr);
+
+        // 1. 总数量
+        document.querySelector(".total-num").textContent = getTotalNum(numArr);
+
+        // 2. 金额
+        document.querySelectorAll(".amount").forEach((amount, index) => (amount.textContent = amountArr[index]));
+
+        // 3. 总金额
+        document.querySelector(".total-amount").textContent = getTotalAmount(amountArr);
+      }
+
+      // 当购物车加载时,初始化,要自动计算
+      window.onload = autoCalculate;
+
+      // 当数量更新时,触发自动计算
+      nums.forEach(num => (num.onchange = autoCalculate));
+    </script>
+    <!-- ! 作业: 只计算选中的商品, 未选中商品的数量和金额自动从总计中减去 -->
+
+    <!-- 等后面学到vue,使用计算属性和侦听器,可以极大的简化以上过程 -->
+  </body>
+</html>

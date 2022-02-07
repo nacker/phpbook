@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>列表渲染</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div class="app">
+        <!-- array  -->
+        <ul>
+            <li>0->{{cities[0]}}</li>
+            <li>1->{{cities[1]}}</li>
+            <li>2->{{cities[2]}}</li>
+        </ul>
+        <!-- array: v-for , 对应原生的 for - of  -->
+        <ul>
+            <!-- 一定要加 :key 为了借助diff算法,key必须选择一个永远唯一的值 -->
+            <li v-for="(city,index) of cities" :key="index">{{index}}->{{city}}</li>
+        </ul>
+
+        <!-- obj: v-for  -->
+        <ul>
+            <!-- prop -> property 属性 -->
+            <li v-for="(item,prop,index) of user" :key="index">{{index}} ->{{prop}} => {{item}}</li>
+        </ul>
+
+        <!-- ArrayObj: v-for  -->
+        <ul>
+            <li v-for="(user,index) of users" :key="index">{{user.name}}: ({{user.email}})</li>
+        </ul>
+    </div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    // array
+                    cities: ['合肥', '苏州', '南京'],
+
+                    // object
+                    user: {
+                        name: '猪老师',
+                        email: 'laozhu@php.cn',
+                    },
+                    // array of object
+                    users: [{
+                        name: '猪老师',
+                        email: 'laozhu@php.cn',
+                    }, {
+                        name: '灭绝老师',
+                        email: 'miejue@php.cn',
+                    }, {
+                        name: '欧阳老师',
+                        email: 'ouyang@php.cn',
+                    }, ],
+                }
+            },
+        }).mount('.app')
+    </script>
+</body>
+
+</html>

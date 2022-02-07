@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>内联框架元素的小应用:后台</title>
+    <style>
+      body {
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        grid-template-columns: 10em 1fr;
+        grid-template-rows: 6em 1fr;
+        margin: 0;
+      }
+
+      body .header {
+        grid-column-end: span 2;
+        border-bottom: 1px solid currentColor;
+        background-color: #efe;
+        padding: 2em;
+        display: flex;
+        align-items: center;
+      }
+      body .header div {
+        margin-left: auto;
+      }
+      body .nav {
+        background-color: #efc;
+        margin: 0;
+        padding-top: 1em;
+        list-style: none;
+      }
+      body iframe {
+        width: calc(100vw - 10em);
+        height: calc(100vh - 6em);
+        border-left: 1px solid currentColor;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 后台顶部 -->
+    <div class="header">
+      <h1>网站后台管理</h1>
+      <div>
+        <span>admin</span>
+        <a href="logout.php">退出</a>
+      </div>
+    </div>
+
+    <!-- 左侧导航 -->
+    <ul class="nav">
+      <li><a href="demo1.html" target="content">菜单项1</a></li>
+      <li><a href="demo2.html" target="content">菜单项2</a></li>
+      <li><a href="demo3.html" target="content">菜单项3</a></li>
+      <li><a href="demo4.html" target="content">菜单项4</a></li>
+      <li><a href="demo5.html" target="content">菜单项5</a></li>
+    </ul>
+
+    <!-- 右侧内容 -->
+    <iframe src="" frameborder="0" name="content"></iframe>
+  </body>
+</html>

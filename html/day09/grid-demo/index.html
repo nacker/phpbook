@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用自定义的12栅格布局组件写一个三列的圣杯布局</title>
+    <!-- 导入栅格布局组件 -->
+    <link rel="stylesheet" href="grid-layout.css" />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      /* 页眉和页脚的样式 */
+      .header,
+      .footer {
+        min-height: 5em;
+      }
+
+      /* 主体 */
+      .main {
+        margin: 0.5em 0;
+        min-height: calc(100vh - 5em - 5em - 1em);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 1 页眉 -->
+    <div class="row header">
+      <div class="col-md-12">页眉</div>
+    </div>
+    <!-- 2 主体 -->
+    <div class="row main">
+      <!-- 左侧 -->
+      <!-- 2列 : 8列 : 2列 = 12列  -->
+      <div class="col-md-2">左侧</div>
+      <div class="col-md-8">内容区</div>
+      <div class="col-md-2">右侧</div>
+    </div>
+
+    <!-- 3 页脚 -->
+    <div class="row footer">
+      <div class="col-md-12">页脚</div>
+    </div>
+  </body>
+</html>

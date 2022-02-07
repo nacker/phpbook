@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <p>html是一个具有层级结构的文档,可以根据元素之间层级关注,实现样式复用</p>
+      <a href="#">样式继承</a>
+      <h3 style="color: turquoise">Hello</h3>
+    </div>
+
+    <style>
+      div {
+        /* div是P的父级 */
+        border: 1px solid #000;
+        color: violet;
+      }
+
+      p {
+        color: green;
+        /* 颜色/前景色: 是可以继承的属性 */
+        color: inherit;
+      }
+
+      /* 默认样式/代理样式 > 继承样式  */
+
+      /* 1. style标签 
+      2. 外部css文档
+      3. 样式继承 */
+    </style>
+  </body>
+</html>

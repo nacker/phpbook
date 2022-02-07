@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数组常用api-1</title>
+  </head>
+  <body>
+    <script>
+      // 字面量
+      let arr = [1, 2, "a", "b", true, { x: 1, y: 2 }, [1, 2, 3], function () {}];
+      //   console.log(arr);
+      // ...rest
+      arr = [4, 5, 6];
+      let arr1 = [...arr];
+      console.log(arr1);
+      arr = [1, 2, 3, ...arr, 7, 8, 9];
+      console.log(arr);
+
+      // Array.of
+      // 原始数据有可能来自一个外部请求api或文件,而这个原始数据就是数组
+      let a = [1, 2, 3, 4, 5, 6];
+      // 经过一些其它操作,例如过滤,再重新生成
+      arr = Array.of(...a);
+      console.log(arr);
+
+      // Array.from
+      const likeArr = {
+        0: "red",
+        1: "blue",
+        2: "green",
+        length: 3,
+      };
+      console.log(likeArr);
+      console.log(Array.from(likeArr));
+    </script>
+  </body>
+</html>

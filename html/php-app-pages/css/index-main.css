@@ -1,0 +1,129 @@
+/* 主体 */
+main {
+  /* 为什么要设置70px的下内边距? */
+  /* 因为页眉是固定定位,不在文档流,会挡住主体底部的一部分内容 */
+  /* 因为页脚高度是50px,给个70px,让内容与页脚之间不拥挤 */
+  padding: 0.1rem 0.1rem 0.7rem;
+
+  cursor: pointer;
+}
+
+/* ! 直播列表 */
+
+/* 列表的标题 */
+main .course-list-1 .title {
+  display: flex;
+  place-content: space-between;
+  padding: 0.1rem;
+}
+
+/* 更多以及图标小一点,字体图标黑夜是16px  */
+main .course-list-1 .title .more,
+main .course-list-1 .title .more :last-of-type {
+  color: #aaa;
+  font-size: 0.1rem;
+}
+/* 课程列表 */
+main .course-list-1 .courses {
+  /* grid布局 */
+  display: grid;
+  row-gap: 0.15rem;
+}
+
+/* 课程列表项 */
+main .course-list-1 .item {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr;
+  column-gap: 0.1rem;
+}
+
+main .course-list-1 img {
+  width: 100%;
+  /* 6px小圆角 */
+  border-radius: 0.06rem;
+}
+
+/* ? 直播预约 角标制作 */
+main .course-list-1 .courses .item .img {
+  /* 因为要用到绝对定位,所以将容器做为定位父级 */
+  position: relative;
+  /* 这是为了消除容器中的图片底部会有几个像素的白边的hack方法,没办法呀 */
+  font-size: 0;
+}
+main .course-list-1 .courses .item .img .tag1 {
+  /* 绝对定位到左上角 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: coral;
+  color: white;
+  font-size: 0.1rem;
+  padding: 0.03rem;
+  /* 角标在左上和右下有一个6px的圆角 */
+  border-top-left-radius: 0.06rem;
+  border-bottom-right-radius: 0.06rem;
+}
+/* 前面的小时钟小一点 */
+main .course-list-1 .courses .item .img .tag1 i {
+  font-size: 0.1rem;
+}
+
+/* ? 直播时间 角标制作,方法与上面的一样,用定位 */
+main .course-list-1 .courses .item .img .tag2 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* 如果图片容器没有处理过底边白边,这里底边要向上提三个像素 */
+  /* bottom: 0.03rem; */
+  background-color: rgb(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 0.1rem;
+  text-align: center;
+  padding: 0.03rem;
+  /* 左右二边的小圆角 */
+  border-bottom-left-radius: 0.06rem;
+  border-bottom-right-radius: 0.06rem;
+}
+
+/* ? 右边标题 */
+main .course-list-1 .courses .item .desc {
+  padding: 0.03rem 0;
+  display: grid;
+}
+
+main .course-list-1 .courses .item .desc span:nth-of-type(2) {
+  color: rgb(230, 20, 20);
+}
+main .course-list-1 .courses .item .desc span:last-of-type {
+  font-size: 0.1rem;
+}
+
+/* ! 特色系列课程 */
+main .course-list-2 {
+  margin: 0.2rem 0;
+}
+main .course-list-2 img {
+  width: 100%;
+  border-radius: 0.06rem;
+}
+
+main .course-list-2 .courses {
+  margin: 0.1rem 0;
+  display: flex;
+  flex-wrap: nowrap;
+  /* 因为有隐藏内容,所以要显示滚动条 */
+  overflow: auto;
+  cursor: pointer;
+}
+
+main .course-list-2 .courses .item {
+  flex: 1 0 1.5rem;
+  margin-right: 0.1rem;
+  /* 标题文本居中 */
+  text-align: center;
+}
+
+main .course-list-2 .courses .item .title {
+  font-size: smaller;
+}

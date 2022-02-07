@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>响应式的网络相册管理器(前女友们)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-size: 10px;
+        }
+        
+        body {
+            font-size: 1.6rem;
+            background-color: #efefef;
+        }
+        
+        ul {
+            display: flex;
+            flex-flow: row wrap;
+            place-content: space-around;
+        }
+        
+        li {
+            list-style: none;
+            width: 23rem;
+            border: 1px solid violet;
+            padding: 1rem 1rem 0;
+            margin-top: 1rem;
+            display: flex;
+            flex-flow: column nowrap;
+        }
+        
+        li:hover {
+            background-color: lightcyan;
+            cursor: pointer;
+            box-shadow: 0 0 8px violet;
+            border: none;
+        }
+        
+        li img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        li button {
+            background-color: violet;
+            color: white;
+            border: none;
+            outline: none;
+            margin: 0.2rem;
+            border-radius: 0.3rem;
+            padding: 2px 8px;
+            cursor: pointer;
+            flex: 1;
+        }
+        
+        li button:hover {
+            background-color: coral;
+        }
+        
+        li .btns {
+            height: 4rem;
+            display: flex;
+            place-content: space-around;
+            place-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="container">
+        <!-- 这里放所有相片，全部使用js动态创建 -->
+    </ul>
+
+    <script>
+        // 图片数组
+        const imgs = [
+            "images/img_1.jpg",
+            "images/img_2.jpg",
+            "images/img_3.jpg",
+            "images/img_4.jpg",
+            "images/img_5.jpg",
+            "images/img_6.jpg",
+            "images/img_7.jpg",
+            "images/img_8.jpg",
+        ];
+
+        // onload: 元素加载完成即执行
+        window.onload = showImgs;
+
+        const ul = document.querySelector(".container");
+        // console.log(ul);
+
+        function showImgs() {
+            let htmlStr = imgs.reduce((acc, img) => {
+                let tpl = `
+                  <li>
+                      <img src="${img}" />
+                      <div>
+                          <button onclick="del(this.parentNode.parentNode)">删除</button>
+                          <button onclick="next(this.parentNode.parentNode)">向后</button>
+                          <button onclick="prev(this.parentNode.parentNode)">向前</button>
+                      </div>
+                  </li>
+                  `;
+                return acc + tpl;
+            }, "");
+            // console.log(htmlStr);
+            ul.insertAdjacentHTML("afterBegin", htmlStr);
+
+            // ul.insertAdjacentElement(插入的位置, 元素)
+            // u.insertAdjacentHTML(插入的位置, html字符串)
+        }
+
+        // 删除
+        function del(ele) {
+            return confirm("是否删除?") ? ele.remove() : false;
+        }
+
+        // 向前
+        function prev(ele) {
+            if (ele.previousElementSibling === null) {
+                alert("已到第一张");
+                return false;
+            }
+            // 1. 拿到前一个
+            let prevNode = ele.previousElementSibling;
+            // 2. 将当前的元素插入到前一个元素的前面
+            setTimeout(() => {
+                prevNode.before(ele);
+            }, 300);
+        }
+
+        // 向后
+        function next(ele) {
+            if (ele.nextElementSibling === null) {
+                alert("已到最后一张");
+                return false;
+            }
+            // 1. 拿到下一个
+            let nextNode = ele.nextElementSibling;
+            // 2. 将当前的元素插入到下一个元素的后面
+            setTimeout(() => {
+                nextNode.after(ele);
+            }, 300);
+        }
+    </script>
+</body>
+
+</html>

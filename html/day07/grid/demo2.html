@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>grid容器属性与项目属性</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+      <div class="item">7</div>
+      <div class="item">8</div>
+      <div class="item">9</div>
+
+      <!-- 再增加二个 -->
+
+      <div class="item">10</div>
+      <div class="item">11</div>
+    </div>
+    <style>
+      .container {
+        width: 30em;
+        height: 30em;
+        background-color: wheat;
+
+        /* grid  */
+        display: grid;
+
+        /* 显式网格 */
+        grid-template-columns: repeat(3, 10em);
+        grid-template-rows: repeat(3, 10em);
+
+        /* gap: 行间距  列间距  */
+        gap: 5px 10px;
+        gap: 10px 10px;
+        gap: 10px;
+
+        /* 将容器的大小调整一下, 以容纳多出来的项目 */
+        width: 40em;
+        height: 50em;
+
+        /* 隐式网格: 容纳超出显式网格的项目 */
+        /* 当前的排列规则/方向, 行优先, 先在一行排列,排列不上再换行显示 */
+        /* grid-auto-flow: column; */
+        grid-auto-rows: 10em;
+        /* grid-auto-columns: 10em; */
+
+        /* 对齐的前提: 要有剩余空间进行分配 */
+        /* 对齐第二个前提:  参照物 */
+        /* grid项目对齐有二个参照物: 容器, 单元格  */
+
+        /* 1. 所有项目在"容器"中的对齐方式  */
+        /* place-content: 垂直方向 水平方向; */
+        place-content: start start;
+        place-content: center end;
+        place-content: center center;
+        place-content: center;
+        /* 剩余空间在所在项目之间进行分配  */
+        place-content: space-between space-around;
+        place-content: space-between space-between;
+        place-content: space-between;
+
+        /* 2. 所有项目在所在的"单元格"中的对齐方式 */
+        place-items: start start;
+        place-items: center end;
+        place-items: center center;
+        place-items: center;
+
+        /* 所有项目在容器和单元格中全部水平垂直居中了 */
+        place-content: center;
+        place-items: center;
+      }
+
+      .container > .item {
+        background-color: violet;
+
+        /* 限定一个项目大小 */
+        width: 6em;
+        height: 6em;
+      }
+      .container > .item:nth-of-type(5) {
+        background-color: yellow;
+        place-self: start end;
+      }
+    </style>
+  </body>
+</html>

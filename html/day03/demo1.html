@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片/链接/列表</title>
+</head>
+<body>
+    <!-- 1. 图片 -->
+    <!-- <img src="./images/bear.jpg" alt="小熊"> -->
+
+    <!-- 2. 链接 -->
+    <!-- <a href="https://www.php.cn/course/1345.html" target="_blank">php.cn第18期</a> -->
+
+    <!-- 3. 列表 -->
+    <!-- ul+li 无序列表 -->
+    <!-- <ul>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+    </ul> -->
+    <!-- ol+li 有序列表 -->
+    <!-- <ol>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+    </ol> -->
+    <!-- 自定义列表 -->
+    <!-- dl+dt+dd  -->
+    <!-- <dl> -->
+        <!-- dt+dd 名词解释 -->
+        <!-- <dt>地址: </dt>
+        <dd>合肥市政务新区</dd>
+        <dt>邮箱:</dt>
+        <dd>admin@php.cn</dd>
+        <dd>zhulaoshi@php.cn</dd>
+    </dl>
+    <hr> -->
+
+    <!-- 1. 应用场景1: 导航 -->
+    <ul class="nav">
+        <li class="item"><a href="">link1</a></li>
+        <li class="item"><a href="">link2</a></li>
+        <li class="item"><a href="">link3</a></li>
+    </ul>
+    <!-- html5 : nav  -->
+    <!-- <nav>
+        <a href="">item1</a>
+        <a href="">item2</a>
+        <a href="">item3</a>
+    </nav> -->
+<hr>
+    <!-- 2. 图文列表 -->
+    <ul class="nav" style="display: flex; list-style: none;">
+        <li class="item">
+            <a href="#">
+                <img src="./images/bear.jpg" alt="">
+                <a href="">四个小伙伴</a>
+            </a>
+        </li>
+        <li class="item"><a href=""><a href="#">
+            <img src="./images/dog.jpg" alt="">
+            <a href="">二个恩爱的小夫妻</a>
+        </a></a></li>
+        <li class="item"><a href=""><a href="#">
+            <img src="./images/duck.jpg" alt="">
+            <a href="">孤独的丑小鸭</a>
+        </a></a></li>
+    </ul>
+</body>
+</html>

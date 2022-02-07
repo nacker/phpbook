@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>作业1: 小学课程表</title>
+  </head>
+  <body>
+    <!-- ! table中的属性,如 border,width,cellspacing...均已废止,推荐用css控制,这里仅做演示,后面不再使用 -->
+    <table border="1" width="450" cellspacing="0" cellpadding="5" align="center">
+      <caption>
+        <h3>合肥市南门小学六年级课程表</h3>
+      </caption>
+      <thead bgcolor="#e5e5e5">
+        <tr>
+          <th>时间</th>
+          <th>周一</th>
+          <th>周二</th>
+          <th>周三</th>
+          <th>周四</th>
+          <th>周五</th>
+        </tr>
+      </thead>
+      <!-- 上午 -->
+      <tbody>
+        <tr>
+          <td rowspan="4" bgcolor="#e7f7f7">上午</td>
+          <td>数学</td>
+          <td>语文</td>
+          <td>语文</td>
+          <td>英语</td>
+          <td>体育</td>
+        </tr>
+        <tr>
+          <td>语文</td>
+          <td>法制</td>
+          <td>科学</td>
+          <td>数学</td>
+          <td>数学</td>
+        </tr>
+        <tr>
+          <td>音乐</td>
+          <td>语文</td>
+          <td>英语</td>
+          <td>电脑</td>
+          <td>数学</td>
+        </tr>
+        <tr>
+          <td>数学</td>
+          <td>数学</td>
+          <td>语文</td>
+          <td>语文</td>
+          <td>音乐</td>
+        </tr>
+      </tbody>
+      <!-- 中午 -->
+      <tbody>
+        <tr align="center">
+          <td colspan="6">中午休息</td>
+        </tr>
+      </tbody>
+      <!-- 下午 -->
+      <tbody>
+        <tr>
+          <td rowspan="3" bgcolor="#e7f7f7">下午</td>
+          <td>数学</td>
+          <td>语文</td>
+          <td>英语</td>
+          <td>数学</td>
+          <td>数学</td>
+        </tr>
+        <tr>
+          <td>数学</td>
+          <td>数学</td>
+          <td>数学</td>
+          <td>数学</td>
+          <td>数学</td>
+        </tr>
+        <tr>
+          <td>英语</td>
+          <td>数学</td>
+          <td>数学</td>
+          <td>数学</td>
+          <td>数学</td>
+        </tr>
+      </tbody>
+      <!-- 表尾 -->
+      <tfoot align="center" bgcolor="#e5e5e5">
+        <tr>
+          <td>备注:</td>
+          <td colspan="5">每天下午15:30-17:30在校写完作业才可回家</td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>

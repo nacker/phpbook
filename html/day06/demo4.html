@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>定位实战:模态框</title>
+  </head>
+  <body>
+    <header>
+      <h2 class="title">猪老湿的博客</h2>
+      <button onclick="document.querySelector('.modal').style.display='block'">登录</button>
+    </header>
+
+    <!-- 模态框 -->
+    <div class="modal">
+      <!-- 1. 半透明的遮罩 -->
+      <!-- 点击遮罩,关闭表单 -->
+      <div class="modal-bg" onclick="this.parentNode.style.display='none'"></div>
+      <!-- 2. 弹层表单 -->
+      <form action="" class="modal-form">
+        <fieldset style="display: grid; gap: 1em">
+          <legend>用户登录</legend>
+          <input type="email" name="email" placeholder="user@email.com" />
+          <input type="password" name="password" placeholder="不少于6位" />
+          <button>登录</button>
+        </fieldset>
+      </form>
+    </div>
+
+    <style>
+      /* 初始化 */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      /* 头部样式 */
+      header {
+        background-color: lightseagreen;
+        padding: 0.5em 1em;
+        /* flex布局,下周一讲,先体验一下 */
+        display: flex;
+      }
+      /* 标题LOGO */
+      header .title {
+        font-weight: lighter;
+        font-style: italic;
+        color: white;
+        text-shadow: 1px 1px 1px #555;
+        letter-spacing: 1px;
+      }
+      /* 登录按钮 */
+      header button {
+        margin-left: auto;
+        width: 5em;
+        border: none;
+        border-radius: 0.5em;
+      }
+      header button:hover {
+        cursor: pointer;
+        background-color: coral;
+        color: white;
+        box-shadow: 0 0 5px #fff;
+        transition: 0.3s;
+      }
+
+      /* 模态框表单 */
+      .modal .modal-form fieldset {
+        background-color: lightcyan;
+        border: none;
+        padding: 2em;
+        box-shadow: 0 0 5px #888;
+      }
+      /* 模态框表单标题 */
+      .modal .modal-form fieldset legend {
+        padding: 5px 1em;
+        background-color: rebeccapurple;
+        color: white;
+      }
+      .modal .modal-form {
+        /* 固定定位 */
+        position: fixed;
+        /* 顶部要留出头部导航的位置 */
+        top: 10em;
+        /* 左右相等,将表单挤到正中间 */
+        left: 20em;
+        right: 20em;
+      }
+      /* 半透明的遮罩 */
+      .modal .modal-bg {
+        /* 固定布局,定位空间在整个屏幕 */
+        position: fixed;
+        /* 屏幕视口的四个顶点的坐标 */
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        /* 背景半透明 */
+        background-color: rgb(0, 0, 0, 0.5);
+      }
+
+      /* 初始化时将模态框弹层隐藏 */
+      .modal {
+        display: none;
+      }
+    </style>
+  </body>
+</html>

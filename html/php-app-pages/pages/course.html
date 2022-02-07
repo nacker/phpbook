@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>课程页面</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../font_icon/iconfont.css" />
+    <link rel="stylesheet" href="../css/course.css" />
+  </head>
+  <body>
+    <header>
+      <video src="../images/1.mp4" type="video/mp4" poster="../images/course1.jpg" controls></video>
+      <ul class="btns" onclick="showDetail(event)">
+        <li class="item active" data-index="1">章节</li>
+        <li class="item" data-index="2">详情</li>
+        <li class="item" data-index="3">评论</li>
+      </ul>
+    </header>
+    <main>
+      <!-- ! 章节:对应列表 -->
+      <div class="chapter" data-index="1">
+        <div class="desc">
+          <div class="title">ProcessOn思维导图使用教程</div>
+          <div class="info">
+            <span class="tag">公益</span>
+            <span>章节: 28</span>
+            <span><span>123456</span>&nbsp;次学习</span>
+          </div>
+        </div>
+        <!-- 根据章节数量创建多个列表,以6个章节演示 -->
+        <div class="details">
+          <ul class="list">
+            <div class="title" onclick="toggleShow(this)">
+              <span>ProcessOn初体验</span>
+              <span class="iconfont icon-xiangshangjiantou"></span>
+            </div>
+
+            <ul class="lesson-list" onclick="playVideo(event)">
+              <li class="item active" data-url="../images/1.mp4" data-poster="../images/course1.jpg">
+                <span class="iconfont icon-24gf-playCircle"></span>
+                <span class="title">ProcessOn功能介绍</span>
+                <span class="status">最近学习</span>
+              </li>
+              <li class="item" data-url="../images/2.mp4" data-poster="../images/course2.jpg">
+                <span class="iconfont icon-24gf-playCircle"></span>
+                <span class="title">ProcessOn为什么适合程序员?</span>
+                <span class="status hidden">最近学习</span>
+              </li>
+              <li class="item" data-url="../images/1.mp4" data-poster="../images/course4.jpg">
+                <span class="iconfont icon-24gf-playCircle"></span>
+                <span class="title">processon功能介绍3</span>
+                <span class="status hidden">最近学习</span>
+              </li>
+            </ul>
+          </ul>
+          <ul class="list">
+            <div class="title" onclick="toggleShow(this)">
+              <span>ProcessOn主题操作</span>
+              <span class="iconfont icon-xiangshangjiantou"></span>
+            </div>
+            <ul class="lesson-list" onclick="playVideo(event)">
+              <li class="item" data-url="../images/2.mp4" data-poster="../images/course5.jpg">
+                <span class="iconfont icon-24gf-playCircle"></span>
+                <span class="title">ProcessOn主题操作</span>
+                <span class="status hidden">最近学习</span>
+              </li>
+
+              <li class="item" data-url="../images/1.mp4" data-poster="../images/course6.jpg">
+                <span class="iconfont icon-24gf-playCircle"></span>
+                <span class="title">ProcessOn添加分支</span>
+                <span class="status hidden">最近学习</span>
+              </li>
+
+              <li class="item" data-url="../images/1.mp4" data-poster="../images/course4.jpg">
+                <span class="iconfont icon-24gf-playCircle"></span>
+                <span class="title">processon功能介绍3</span>
+                <span class="status hidden">最近学习</span>
+              </li>
+            </ul>
+          </ul>
+          <ul class="list">
+            <div class="title" onclick="toggleShow(this)">
+              <span>ProcessOn初体验</span>
+              <span class="iconfont icon-xiangshangjiantou"></span>
+            </div>
+
+            <ul class="lesson-list" onclick="playVideo(event)">
+              <li class="item" data-url="../images/1.mp4" data-poster="../images/course1.jpg">
+                <span class="iconfont icon-24gf-playCircle"></span>
+                <span class="title">ProcessOn功能介绍</span>
+                <span class="status hidden">最近学习</span>
+              </li>
+              <li class="item" data-url="../images/2.mp4" data-poster="../images/banner1.jpg">
+                <span class="iconfont icon-24gf-playCircle"></span>
+                <span class="title">ProcessOn为什么适合程序员?</span>
+                <span class="status hidden">最近学习</span>
+              </li>
+              <li class="item" data-url="../images/1.mp4" data-poster="../images/course4.jpg">
+                <span class="iconfont icon-24gf-playCircle"></span>
+                <span class="title">processon功能介绍3</span>
+                <span class="status hidden">最近学习</span>
+              </li>
+            </ul>
+          </ul>
+          <ul class="list">
+            <div class="title" onclick="toggleShow(this)">
+              <span>ProcessOn主题操作</span>
+              <span class="iconfont icon-xiangshangjiantou"></span>
+            </div>
+            <ul class="lesson-list" onclick="playVideo(event)">
+              <li class="item" data-url="../images/2.mp4" data-poster="../images/course1.jpg">
+                <span class="iconfont icon-24gf-playCircle"></span>
+                <span class="title">ProcessOn主题操作</span>
+                <span class="status hidden">最近学习</span>
+              </li>
+
+              <li class="item" data-url="../images/1.mp4" data-poster="../images/course5.jpg">
+                <span class="iconfont icon-24gf-playCircle"></span>
+                <span class="title">ProcessOn添加分支</span>
+                <span class="status hidden">最近学习</span>
+              </li>
+
+              <li class="item" data-url="../images/1.mp4" data-poster="../images/course2.jpg">
+                <span class="iconfont icon-24gf-playCircle"></span>
+                <span class="title">processon功能介绍3</span>
+                <span class="status hidden">最近学习</span>
+              </li>
+            </ul>
+          </ul>
+          <ul class="list">
+            <div class="title" onclick="toggleShow(this)">
+              <span>ProcessOn初体验</span>
+              <span class="iconfont icon-xiangshangjiantou"></span>
+            </div>
+
+            <ul class="lesson-list" onclick="playVideo(event)">
+              <li class="item" data-url="../images/1.mp4" data-poster="../images/course1.jpg">
+                <span class="iconfont icon-24gf-playCircle"></span>
+                <span class="title">ProcessOn功能介绍</span>
+                <span class="status hidden">最近学习</span>
+              </li>
+              <li class="item" data-url="../images/2.mp4" data-poster="../images/course2.jpg">
+                <span class="iconfont icon-24gf-playCircle"></span>
+                <span class="title">ProcessOn为什么适合程序员?</span>
+                <span class="status hidden">最近学习</span>
+              </li>
+              <li class="item" data-url="../images/1.mp4" data-poster="../images/course4.jpg">
+                <span class="iconfont icon-24gf-playCircle"></span>
+                <span class="title">processon功能介绍3</span>
+                <span class="status hidden">最近学习</span>
+              </li>
+            </ul>
+          </ul>
+          <ul class="list">
+            <div class="title" onclick="toggleShow(this)">
+              <span>ProcessOn主题操作</span>
+              <span class="iconfont icon-xiangshangjiantou"></span>
+            </div>
+            <ul class="lesson-list" onclick="playVideo(event)">
+              <li class="item" data-url="../images/2.mp4" data-poster="../images/course2.jpg">
+                <span class="iconfont icon-24gf-playCircle"></span>
+                <span class="title">ProcessOn主题操作</span>
+                <span class="status hidden">最近学习</span>
+              </li>
+
+              <li class="item" data-url="../images/1.mp4" data-poster="../images/course6.jpg">
+                <span class="iconfont icon-24gf-playCircle"></span>
+                <span class="title">ProcessOn添加分支</span>
+                <span class="status hidden">最近学习</span>
+              </li>
+
+              <li class="item" data-url="../images/1.mp4" data-poster="../images/course5.jpg">
+                <span class="iconfont icon-24gf-playCircle"></span>
+                <span class="title">processon功能介绍3</span>
+                <span class="status hidden">最近学习</span>
+              </li>
+            </ul>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ! 详情:对应列表 -->
+      <div class="detail hidden" data-index="2">
+        <!-- 讲师描述 -->
+        <div class="user" onclick="location.href='xxx.html'">
+          <img src="../images/user-pic.jpg" alt="" />
+          <div>
+            <span class="name">猪老湿</span>
+            <span class="content">最艰难的时候是走上坡路的时候 (莫言)</span>
+          </div>
+          <span class="like" onclick="like(this)">关注</span>
+        </div>
+        <!-- 课程简介 -->
+        <div class="desc">
+          <span class="title">课程简介</span>
+          <span class="content"
+            >从实战中掌握工具的使用, 让你知道工具的每一处细节, 使自己的工作效率,成倍提升,人生最痛苦的事,莫过于,比你
+            优秀那么多的人, 却还那么努力, 这就尴尬了, 让俺"情何以Kan", 每每想起,夜不能寐, 沉思到天明~~
+          </span>
+        </div>
+        <!-- 他的其它课程 -->
+        <div class="other">
+          <span class="title">TA的课程</span>
+          <ul class="courses">
+            <li class="item" onclick="location.href='#'">
+              <div class="imgs">
+                <img src="../images/course1.jpg" alt="" />
+                <!-- 字体图标的类名太长,可起一个简单好记的方便引用,例如 play  -->
+                <span class="iconfont icon-24gf-playCircle play"></span>
+                <span class="iconfont icon-wode count">&nbsp;12345</span>
+              </div>
+              <div class="title">Laravel 8.0最新教程</div>
+            </li>
+            <li class="item" onclick="location.href='#'">
+              <div class="imgs">
+                <img src="../images/course1.jpg" alt="" width="100" />
+                <span class="iconfont icon-24gf-playCircle play"></span>
+                <span class="iconfont icon-wode count">&nbsp;12345</span>
+              </div>
+              <div class="title">Laravel 8.0最新教程</div>
+            </li>
+            <li class="item" onclick="location.href='#'">
+              <div class="imgs">
+                <img src="../images/course1.jpg" alt="" width="100" />
+                <span class="iconfont icon-24gf-playCircle play"></span>
+                <span class="iconfont icon-wode count">&nbsp;12345</span>
+              </div>
+              <div class="title">Laravel 8.0最新教程</div>
+            </li>
+            <li class="item" onclick="location.href='#'">
+              <div class="imgs">
+                <img src="../images/course1.jpg" alt="" width="100" />
+                <span class="iconfont icon-24gf-playCircle play"></span>
+                <span class="iconfont icon-wode count">&nbsp;12345</span>
+              </div>
+              <div class="title">Laravel 8.0最新教程</div>
+            </li>
+            <li class="item" onclick="location.href='#'">
+              <div class="imgs">
+                <img src="../images/course1.jpg" alt="" />
+                <!-- 字体图标的类名太长,可起一个简单好记的方便引用,例如 play  -->
+                <span class="iconfont icon-24gf-playCircle play"></span>
+                <span class="iconfont icon-wode count">&nbsp;12345</span>
+              </div>
+              <div class="info">Laravel 8.0最新教程</div>
+            </li>
+            <li class="item" onclick="location.href='#'">
+              <div class="imgs">
+                <img src="../images/course1.jpg" alt="" width="100" />
+                <span class="iconfont icon-24gf-playCircle play"></span>
+                <span class="iconfont icon-wode count">&nbsp;12345</span>
+              </div>
+              <div class="title">Laravel 8.0最新教程</div>
+            </li>
+            <li class="item" onclick="location.href='#'">
+              <div class="imgs">
+                <img src="../images/course1.jpg" alt="" />
+                <!-- 字体图标的类名太长,可起一个简单好记的方便引用,例如 play  -->
+                <span class="iconfont icon-24gf-playCircle play"></span>
+                <span class="iconfont icon-wode count">&nbsp;12345</span>
+              </div>
+              <div class="info">Laravel 8.0最新教程</div>
+            </li>
+            <li class="item" onclick="location.href='#'">
+              <div class="imgs">
+                <img src="../images/course1.jpg" alt="" width="100" />
+                <span class="iconfont icon-24gf-playCircle play"></span>
+                <span class="iconfont icon-wode count">&nbsp;12345</span>
+              </div>
+              <div class="title">Laravel 8.0最新教程</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ! 评论: 对应列表 -->
+      <div class="review hidden" data-index="3">
+        <div class="item">
+          <img src="../images/tou-xiang1.jpg" alt="" />
+          <span class="name">小金莲</span>
+          <span class="time">3天前</span>
+          <div class="content">
+            非常有意思的课程, 期待更新快一点, 后面的会讲实战案例吗?课程配置的课件,源码在哪里可以下载呢?
+          </div>
+          <div class="dianzan" data-isdz="false" onclick="dianzan()">
+            <span class="iconfont icon-dianzan"></span>
+            <span>123</span>
+          </div>
+          <span class="iconfont icon-duihuaxinxi"></span>
+        </div>
+        <div class="item">
+          <img src="../images/tou-xiang2.jpg" alt="" />
+          <span class="name">西门小庆</span>
+          <span class="time">6天前</span>
+          <div class="content">自从学了这套课程, 腰与不酸了,脚也不痛了,现在可以一口气爬上六楼了, 真是一课抵三课</div>
+          <div class="dianzan" data-isdz="false" onclick="dianzan()">
+            <span class="iconfont icon-dianzan"></span>
+            <span>555</span>
+          </div>
+          <span class="iconfont icon-duihuaxinxi"></span>
+        </div>
+        <div class="item">
+          <img src="../images/tou-xiang1.jpg" alt="" />
+          <span class="name">小金莲</span>
+          <span class="time">9天前</span>
+          <div class="content">
+            今天不知叔叔,有没有找到那西门小庆,有没有把他打死,最好一拳打死,这样就永远没人知道我们的事了
+          </div>
+          <div class="dianzan" data-isdz="false" onclick="dianzan()">
+            <span class="iconfont icon-dianzan"></span>
+            <span>222</span>
+          </div>
+          <span class="iconfont icon-duihuaxinxi"></span>
+        </div>
+        <div class="item">
+          <img src="../images/tou-xiang2.jpg" alt="" />
+          <span class="name">西门小庆</span>
+          <span class="time">3个月前</span>
+          <div class="content">看完这一课, 再也不怕那武二郎啦, 也不担心武大郎了, 更是记不请小金莲什么模样了</div>
+
+          <div class="dianzan" data-isdz="false" onclick="dianzan()">
+            <span class="iconfont icon-dianzan"></span>
+            <span>99</span>
+          </div>
+          <span class="iconfont icon-duihuaxinxi"></span>
+        </div>
+        <div class="item">
+          <img src="../images/tou-xiang2.jpg" alt="" />
+          <span class="name">西门小庆</span>
+          <span class="time">3天前</span>
+          <div class="content">非常有意思的课程, 期待更新快一点, 后面的会讲实战案例吗?</div>
+          <div class="dianzan" data-isdz="false" onclick="dianzan()">
+            <span class="iconfont icon-dianzan"></span>
+            <span>666</span>
+          </div>
+          <span class="iconfont icon-duihuaxinxi"></span>
+        </div>
+        <div class="item">
+          <img src="../images/tou-xiang1.jpg" alt="" />
+          <span class="name">小金莲</span>
+          <span class="time">6个月前</span>
+          <div class="content">非常有意思的课程, 期待更新快一点, 后面的会讲实战案例吗?</div>
+          <div class="dianzan" data-isdz="false" onclick="dianzan()">
+            <span class="iconfont icon-dianzan"></span>
+            <span>777</span>
+          </div>
+          <span class="iconfont icon-duihuaxinxi"></span>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="comment" onclick="jump()">
+        <span class="iconfont icon-xiaoxi"></span>
+        <span>说几句</span>
+      </div>
+      <ul class="other">
+        <li class="item">
+          <span class="iconfont icon-zhong"></span>
+          <span>圈子</span>
+        </li>
+
+        <li class="item">
+          <span class="iconfont icon-shoucang"></span>
+          <span>收藏</span>
+        </li>
+        <li class="item">
+          <span class="iconfont icon-fenxiang"></span>
+          <span>分享</span>
+        </li>
+      </ul>
+    </footer>
+
+    <script>
+      // 自动展开课程列表
+      function toggleShow(ele) {
+        // console.log(ele.nextElementSibling);
+        // ele.nextElementSibling: 下一下兄弟元素,就是要展开/隐藏的课程列表
+        const nextEle = ele.nextElementSibling;
+        nextEle && nextEle.classList.toggle("hidden");
+        // ele.nextElementSibling.classList.toggle("hidden");
+        // ele.lastElementChild: 最后一个子元素,这里是指那个向上/向下的箭头图标
+        const lastEle = ele.lastElementChild;
+        lastEle && lastEle.classList.toggle("icon-xiangxiajiantou");
+
+        // classList.toggle('className'): 如果有这个类名就去掉,如果没有就自动添加上,实现自动切换
+      }
+
+      // 切换课程
+      function playVideo(ev) {
+        // 为简化事件代码,这里也用到了事件委托/代理机制
+        // ev.target: 触发事件主体,当前是 span.title
+        // ev.currentTarget: 绑定事件主体, 当前是 ul.lesson-list,即课程列表
+
+        // console.log(ev.target);
+        // console.log(ev.currentTarget);
+        //  视频播放地址在它的父级的data属性中
+        // console.log(ev.target.parentNode.dataset.url);
+        // console.log(ev.target.parentNode.dataset.poster);
+        // 视频播放址址与封面海报,放在了自定义属性data-url,data-poster中
+
+        // 获取视频地址,海报,视频元素(在<header>中)
+        const url = ev.target.parentNode.dataset.url;
+        const poster = ev.target.parentNode.dataset.poster;
+        const video = document.querySelector("header video");
+        // 进行替换
+        video.src = url;
+        video.poster = poster;
+
+        // 1 将当前课程设置为激活/高亮状态
+        // 获取所有课程列表,即 li.item,当前事件绑定元素的所有子元素 li.item
+        const items = document.querySelectorAll("main .chapter .item");
+        // console.log(items);
+        // 在设置当前课程高亮时,必须先将其它课程的状态全部复位,因为不确定当前哪一个是激活的,所以要遍历一下
+        // 只需要去掉 li的 active 类样式即可
+        items.forEach(item => item.classList.remove("active"));
+        // 再将当前用户正在点击的课程,设置为激活状态,即红色
+        // ev.target.parentNode 其实就是  li.item,即当前的课程
+        ev.target.parentNode.classList.add("active");
+
+        // 2. 设置"最近学习"的激活状态
+        // 先获取到与课程对应的所有的 span.status,即它的下一个兄弟元素(对照html的dom结构观察)
+        const status = document.querySelectorAll("main .chapter .item span.status");
+        // 在设置高亮之前,也要将之前已经激活的,全部隐藏(设置为未激活),只需要添加hidden样式
+        status.forEach(item => item.classList.add("hidden"));
+        // 再将与当前课程对应的"最近学习"激活,即去掉hidden样式
+        ev.target.nextElementSibling.classList.remove("hidden");
+      }
+
+      // 导航切换
+      function showDetail(ev) {
+        // 当前元素的父元素,用来获取所有子元素要用到
+        // console.log(ev.target.parentNode);
+
+        // 1. 设置导航高亮
+        const items = ev.currentTarget.children;
+        // console.log(items);
+        [...items].forEach(item => item.classList.remove("active"));
+        ev.target.classList.add("active");
+
+        // 2.根据导航索引设置对应的显示的列表详情
+        const index = ev.target.dataset.index;
+        // console.log(index);
+        // 获取所有详情列表元素
+        const details = document.querySelectorAll("main > *");
+        console.log(details);
+        // 先全部隐藏,再根据用户当前点击的导航索引重新设置应该激活的列表
+        // 全部隐藏
+        details.forEach(item => {
+          if (!item.classList.contains("hidden")) {
+            item.classList.add("hidden");
+          }
+        });
+        // 根据索引重新设置
+        details.forEach(item => {
+          if (item.dataset.index === index) {
+            item.classList.remove("hidden");
+          }
+        });
+      }
+
+      // 事件派发,跳转
+      function jump() {
+        event.stopPropagation();
+        const btn = document.querySelector("header .btns .item:last-of-type");
+        btn.addEventListener("click", showDetail, false);
+        // new Event('type')创建一个指定类型的事件,并派发到指定元素上自动激发它
+        btn.dispatchEvent(new Event("click"));
+      }
+
+      // 关注
+      function like(el) {
+        // 事件对象在事件方法总是可用,使用event直接引用,event是固定名称不能改
+        // console.log(event);
+        // 取消该元素的事件冒泡,否则会触发父级的click
+        event.stopPropagation();
+
+        if (el.textContent === "关注") {
+          el.style.backgroundColor = "#ddd";
+          el.style.border = "none";
+          el.textContent = "已关注";
+        } else {
+          el.style.backgroundColor = "#fff";
+          el.style.border = "1px solid #999";
+          el.textContent = "关注";
+        }
+      }
+
+      // 点赞
+      function dianzan() {
+        // 当前被点击的元素,同时也是绑定事件的主体
+        const curr = event.currentTarget;
+        // 获取当前点赞的状态, 保存在自定义忏悔 data-isdz中
+        let status = curr.dataset.isdz;
+
+        // "false": 没有点赞
+        if (status === "false") {
+          curr.style.color = "rgb(255,0,0)";
+          curr.lastElementChild.textContent++;
+          curr.dataset.isdz = "true";
+        }
+        if (status === "true") {
+          curr.style.color = "rgb(25,25,25)";
+          curr.lastElementChild.textContent--;
+          curr.dataset.isdz = "false";
+        }
+      }
+    </script>
+  </body>
+  c
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件绑定</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <!-- es6 -->
+    <p>
+        <a href="https://php.cn" onclick="getUrl()">es6: 显示网站地址: </a>
+        <span class="url"></span>
+    </p>
+    <script>
+        function getUrl() {
+            event.preventDefault()
+            const link = event.currentTarget
+            link.nextElementSibling.textContent = link.href
+        }
+    </script>
+
+    <!-- vue3 -->
+    <div class="app">
+        <p>
+            <!-- v-on: 事件指令 , @ -->
+            <!-- event, 在vue3: $evnet  -->
+            <a href="https://php.cn" v-on:click="showUrl($event)">vue1: 显示网站地址: </a>
+            <span class="url">{{url}}</span>
+        </p>
+
+        <!-- 事件修饰符: 对当前的事件行为进行干预 -->
+        <p>
+            <!-- v-on: 事件指令 , @ -->
+            <!-- event, 在vue3: $evnet  -->
+            <!-- @click.prevent: 阻止默认行为  -->
+            <a href="https://php.cn" @click.prevent="this.url = $event.target.href">vue2: 显示网站地址: </a>
+            <span class="url">{{url}}</span>
+        </p>
+
+        <!-- 在父级上的同名事件,因为事件冒泡机制而被自动的调用了 -->
+        <p onclick="alert('hello')">
+            <!-- @click.stop: 阻止冒泡 -->
+            <a href="https://php.cn" @click.prevent.stop="this.url = $event.target.href">vue3: 显示网站地址: </a>
+            <span class="url">{{url}}</span>
+        </p>
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    url: null,
+                }
+            },
+            methods: {
+                showUrl(ev) {
+                    // 防止默认行为
+                    ev.preventDefault()
+                    console.log(ev === event)
+
+                    // this -> vue实例
+                    console.log(this)
+                    console.log(ev.target)
+
+                    this.url = ev.target.href
+                },
+            },
+        }).mount('.app')
+    </script>
+</body>
+
+</html>

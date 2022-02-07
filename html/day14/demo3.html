@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>实战3: 数组的应用,事件发布与订阅,js事件驱动与任务队列的底层实现</title>
+  </head>
+  <body>
+    <script>
+      //   const arr = [(a, b) => a + b, (a, b) => a * b];
+      //   console.log(arr[0](4, 5));
+      //   console.log(arr[1](4, 5));
+
+      //   const obj = {
+      //     add: (a, b) => a + b,
+      //     mul: (a, b) => a * b,
+      //   };
+
+      //   console.log(obj.add(10, 20));
+      //   console.log(obj.mul(10, 20));
+
+      // 一次发布, 多个订阅, 典型的一对多的应用场景
+
+      const evnetEmitter = {
+        // 订阅中心
+        list: {
+          //   类型: 函数
+          // click: [f1,f2,f3]
+        },
+
+        // 订阅
+        on(type, callback) {
+          this.list[type] = this.list[type] || [];
+          this.list[type].push(callback);
+        },
+
+        // 发布
+        emit(type, data) {
+          this.list[type].map(callback => callback(data));
+        },
+      };
+
+      // 第1步: 初始化订阅中心
+      evnetEmitter.on("click", function (data) {
+        console.log("A用户: 订阅成功! 发布人:" + data);
+      });
+      evnetEmitter.on("click", function (data) {
+        console.log("B用户: 订阅成功! 发布人:" + data);
+      });
+      evnetEmitter.on("click", function (data) {
+        console.log("C用户: 订阅成功! 发布人:" + data);
+      });
+
+      // 第2步: 发布
+
+      setTimeout(() => {
+        evnetEmitter.emit("click", "猪老师");
+      }, 3000);
+
+      console.log(evnetEmitter.list);
+    </script>
+  </body>
+</html>

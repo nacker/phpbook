@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>单线程异步的演示</title>
+  </head>
+  <body>
+    <form action="" style="display: grid; gap: 1em; width: 20em">
+      <input type="text" onkeydown="console.log(this.value)" placeholder="同步" />
+
+      <!-- 慢半拍 -->
+      <!-- 分析为什么第一次获取不到?
+      1. 当按下某个键时, 它会触发keydown事件,事件循环将事件方法从任务队列添加到主线中,并立即调用,即console.log立即执行
+      2. 但是此时这个键对应的值,例如1, 还没有被DOM渲染到input输入框中,所以console.log获取不到值,或获取一个空值
+      3. 因为"按下1" 和 "显示1" 是2步操作,而console.log是在第1步结束后一瞬间执行,而值还没被显示到input框中
+      4. 所以, console.log()执行时机,是在"按下"与"显示"之间,所以无法获取到用户输入的内容或获取到一个空值
+      5. 为什么第2次按下时,console.log()可以获取到了呢?
+      6. 是因为当用户再次按下时, console.log()立即执行,此时input中已经有了内容,就是上一次的输入内容,所以就正常输出了 -->
+
+      <!-- 解决方案也很简单,让console.log()异步执行即可,等到input框中的内容渲染完成之后再执行 -->
+      <!-- 必知内容:
+      1. DOM渲染是同步任务, 这里的dom渲染,是指将内容显示到input框中
+      2. DOM事件是异步任务, 使用keydown
+      3. 异步必须在同步完成后执行 
+      -->
+
+      <!-- 现在简单了, 将console.log异步调用就可以,直接放在setTimeout中就可以,将延迟设置为0 -->
+
+      <!-- 因为setTimeout是异步任务,一定会等主线程中的同步任务执行完毕才会进入主线程,转为同步任务执行
+      而此时, dom渲染已完成, input框中已经有了数据,所以console.log()就正确的, 同步的获取到了数据
+      完美解决了"慢半拍"的问题 -->
+      <input type="text" onkeydown="setTimeout(()=>console.log(this.value),0)" placeholder="异步" />
+
+      <!-- 解决方案 -->
+      <input type="text" oninput="console.log(this.value)" placeholder="input" />
+
+      <!-- input = keydown + setTimeout -->
+    </form>
+  </body>
+</html>

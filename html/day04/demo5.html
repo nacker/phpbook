@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>选择器1: 基本选择器</title>
+  </head>
+  <body>
+    <h2>item1</h2>
+    <h2 title="hello">item2</h2>
+    <!-- id的唯一性由开发者确保,浏览器不检查 -->
+    <h2 id="a">item3</h2>
+    <h2 id="a">item4</h2>
+    <h2 class="b">item5</h2>
+    <h2 class="b">item6</h2>
+
+    <style>
+      /* 基本选择器: 根据元素自身特点来选择 */
+      /* 1. 标签选择器 */
+      h2 {
+        color: red;
+      }
+
+      /* 2. 属性选择器 */
+      h2[title="hello"] {
+        color: green;
+      }
+      /* id: 用于唯一元素 */
+      h2[id="a"] {
+        color: blue;
+      }
+      /* class: 用于多个元素 */
+      h2[class="b"] {
+        color: violet;
+      }
+
+      /* id, class是 高频属性 */
+      /* id => #  */
+      h2#a {
+        color: cyan;
+      }
+      /* class = "."  */
+      h2.b {
+        color: orange;
+      }
+      /* 推荐尽可能只用class  */
+
+      /* 3. 群组选择器 */
+      h2#a,
+      h2.b {
+        background-color: yellow;
+      }
+
+      /* 4. 通配选择器: *  */
+      html body * {
+        background-color: gray !important;
+      }
+      /* !important: 瞬间提权到100%  */
+    </style>
+  </body>
+</html>

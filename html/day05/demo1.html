@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>选择器3: 伪类</title>
+  </head>
+  <body>
+    <!-- 伪类: 伪,表示假的, 类,权重,class级 -->
+    <!-- 伪类: 
+      1. 结构伪类: 根据元素位置获取元素
+      2. 状态伪类: 根据状态来获取元素 -->
+
+    <!-- 重点学习: 结构伪类 -->
+    <ul class="list">
+      <li class="first">item1</li>
+      <li>item2</li>
+      <li>item3</li>
+      <li>item4</li>
+      <li>item5</li>
+      <li>item6</li>
+      <li>item7</li>
+      <li>item8</li>
+    </ul>
+
+    <style>
+      /* 分组结构伪类: 用于选择子元素,所以应该给它一个查询的起点 */
+      /* 第一个 */
+      .list > li:nth-of-type(1) {
+        background-color: violet-;
+      }
+      /* 最后一个 */
+      .list > li:nth-of-type(8) {
+        background-color: violet-;
+      }
+
+      /* 任何一个 */
+      .list > li:nth-of-type(5) {
+        background-color: violet-;
+      }
+
+      /* 选择第5个, 相当于倒数第4个 */
+      .list > li:nth-last-of-type(4) {
+        background-color: violet-;
+      }
+
+      .list :first-of-type {
+        background-color: violet-;
+      }
+      .list :last-of-type {
+        background-color: violet;
+      }
+    </style>
+  </body>
+</html>

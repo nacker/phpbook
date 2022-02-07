@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>条件渲染</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div class="app">
+        <!-- if  -->
+        <p v-if="flag">{{message}}</p>
+        <button @click="flag=!flag" v-text="flag ? '隐藏' : '显示'"></button>
+
+        <!-- if -- if else -- if else -- else  -->
+        <p v-if="point >= 1000 && point < 2000">{{grade[0]}}</p>
+        <p v-else-if="point >= 2000 && point < 3000">{{grade[1]}}</p>
+        <p v-else-if="point >= 3000 && point < 4000">{{grade[2]}}</p>
+        <p v-if="point >= 4000">{{grade[3]}}</p>
+        <p v-else>{{grade[4]}}</p>
+    </div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    message: '今晚是前端基础最后一课,也是我老猪的最后一课',
+                    flag: false,
+                    // 会员级别
+                    grade: ['纸片会员', '木头会员', '铁皮会员', '金牌会员', '非会员'],
+                    // 积分
+                    point: 300,
+                }
+            },
+        }).mount('.app')
+    </script>
+</body>
+
+</html>

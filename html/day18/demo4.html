@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>样式绑定</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+        .active {
+            color: red;
+        }
+        
+        .bgc {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <!-- 一: 样式绑定 v-bind, 简化: 冒号 -->
+        <!-- 行内样式 style -->
+        <p style="color: red">php.cn</p>
+        <p v-bind:style="style">php.cn</p>
+        <p style="color: blue; background-color: yellow">php.cn</p>
+        <p :style="{color: textColor, backgroundColor: bgColor}">php.cn</p>
+        <!-- <button style="前面三个是基本样式,后面三个是定制样式"></button> -->
+        <button :style="[btnBase, btnCustom]">提交</button>
+
+        <!-- class样式 -->
+        <p :class="active">hello 老王</p>
+        <p :class="{'active':isActive}">hello 老王</p>
+        <p :class="['active', 'bgc']">hello 老猪</p>
+        <p :class="[active , bgc]">hello 老猪</p>
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    style: "color:blue",
+
+                    textColor: "green",
+                    bgColor: "cyan",
+
+                    btnBase: {
+                        width: "5em",
+                        height: "2em",
+                        border: "none",
+                    },
+                    btnCustom: {
+                        backgroundColor: "seagreen",
+                        color: "white",
+                        cursor: "pointer",
+                    },
+
+                    active: "active",
+                    isActive: false,
+
+                    bgc: "bgc",
+                }
+            },
+        }).mount(".app")
+    </script>
+</body>
+
+</html>

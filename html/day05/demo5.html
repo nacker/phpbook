@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>常用单位</title>
+  </head>
+  <body>
+    <!-- px, em, rem , vh, vw  -->
+
+    <style>
+      /* 绝对单位: px , 1in = 96px  */
+      /* 相对单位: em,rem, vh, vw  */
+    </style>
+
+    <div class="box"></div>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      /* font-size: 字号大小, 它是一个可以被继承的属性 */
+      .box {
+        /* font-size: 32px; */
+        /* width: 160px; */
+        /* width: 10em; */
+        /* 10em = 160px */
+        /* em = font-size 默认字号 16px*/
+
+        /* 1em = 16px  */
+        /* 10em = 160px  */
+
+        /* height: 5em;
+
+        background-color: lightgreen; */
+
+        /* em: 永远和当前或父级的font-size进行绑定 */
+      }
+
+      /* rem: 永远和html(根元素)中的font-size绑定 */
+
+      html {
+        /* 1rem = 10px; */
+        /* font-size: 10px; */
+      }
+
+      .box {
+        /* font-size: 40px; */
+        /* width: 200px; */
+        /* 200px = 20 * 10 = 20rem */
+        /* width: 20rem;
+        height: 15rem;
+
+        width: 10em;
+        height: 5em; */
+      }
+
+      /* vh, vw  */
+
+      /* vw: 将视口宽度分为100份, 1vw = 1/100 */
+      /* vh: 将视口高宽分为100份, 1vh = 1/100 */
+
+      /* 视口: 可视窗口 */
+
+      /* .box {
+        width: 100vw;
+        height: 100vh;
+      } */
+    </style>
+  </body>
+</html>

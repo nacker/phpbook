@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>细说表单(重点)</title>
+  </head>
+  <body>
+    <h2>用户注册</h2>
+    <!-- form + input + select + button ...  -->
+    <!-- action: 处理表单的程序 -->
+    <form action="verify.php" method="get" style="display: grid; gap: 10px">
+      <!-- name: 变量/js选择, value: 默认值 -->
+      <!-- <input type="text" name="username" value="admin" />
+      <input type="password" name="password" /> -->
+      <!-- http://127.0.0.1:5500/1222/verify.php?username=admin&password=123456 -->
+      <!-- <button>提交</button> -->
+
+      <!-- 提交的数据,直接在url中 , 这叫: get 请求 -->
+      <!-- post: 数据不会出现在url中, 而是随着请求体发送 -->
+      <!-- http://127.0.0.1:5500/1222/verify.php   ? username=admin -->
+      <!-- http://127.0.0.1:5500/1222/verify.php?username=zhu+lao+shi
+      zhu lao shi 
+      zhu+lao+shi -->
+
+      <!-- 二种请求类型： get, post 
+      form的二个属性： action, method  -->
+
+      <!-- 文本框 -->
+      <div>
+        <label for="usernaem">用户名:</label>
+        <input
+          type="text"
+          name="usernaem"
+          value="admin"
+          id="usernaem"
+          placeholder="至少8位"
+          required
+        />
+      </div>
+      <!-- 密码框 -->
+      <div>
+        <label for="password">密码:</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="数字+字母,至少6位"
+        />
+        <button onclick="showPassword(this,this.form.password)" type="button">
+          查看
+        </button>
+      </div>
+
+      <div>
+        <label for="email">邮箱:</label>
+        <input type="email" name="email" id="email" />
+      </div>
+
+      <!-- 单选按钮 -->
+      <div>
+        <label for="secret">性别:</label>
+        <!-- name发表一致 -->
+        <!-- gender = male  -->
+        <!-- checked: 默认 -->
+        <input type="radio" name="gender" id="male" value="male" /><label
+          for="male"
+          >男</label
+        >
+        <!-- gender = female  -->
+        <input type="radio" name="gender" id="female" value="female" /><label
+          for="female"
+          >女</label
+        >
+
+        <input
+          type="radio"
+          name="gender"
+          id="secret"
+          value="secret"
+          checked
+        /><label for="secret">保密</label>
+      </div>
+
+      <!-- 复选框 -->
+      <div>
+        <label>爱好: </label>
+        <!-- name 是一个数组名称 -->
+        <input
+          type="checkbox"
+          name="hobby[]"
+          id="game"
+          value="game"
+          checked
+        /><label for="game">游戏</label>
+        <input type="checkbox" name="hobby[]" id="trave" value="trave" /><label
+          for="trave"
+          >旅游</label
+        >
+        <input
+          type="checkbox"
+          name="hobby[]"
+          id="shoot"
+          value="shoot"
+          checked
+        /><label for="shoot">摄影</label>
+      </div>
+
+      <!-- 下拉列表 -->
+      <!-- name 与 value 写到二个标签中 -->
+      <select name="level" id="">
+        <option value="1">铜牌会员</option>
+        <option value="2">金牌会员</option>
+        <option value="3" selected>永久会员</option>
+      </select>
+
+      <!-- 默认提交 -->
+      <button type="submit">提交</button>
+      <button type="button">按钮</button>
+      <!-- 重置不是清空，只是恢复到默认值状态 -->
+      <button type="reset">重置</button>
+    </form>
+
+    <script>
+      function showPassword(btn, ele) {
+        if (ele.type === "password") {
+          ele.type = "text";
+          btn.textContent = "隐藏";
+        } else {
+          ele.type = "password";
+          btn.textContent = "显示";
+        }
+      }
+    </script>
+  </body>
+</html>

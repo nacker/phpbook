@@ -1,0 +1,42 @@
+/* ! 公共页脚 */
+
+/* 固定定位 */
+footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  /* 因为用了固定定位,导致页脚不受body中的宽高限制,所以要再次限制一下 */
+  max-width: 750px;
+  min-width: 320px;
+  margin: auto;
+  z-index: 99;
+
+  border-top: 1px solid #ccc;
+  height: 0.5rem;
+  background-color: #fff;
+  display: flex;
+}
+
+footer .item {
+  flex: 1;
+  /* 垂直居中,用grid更简洁 */
+  display: grid;
+  place-items: center;
+}
+
+footer .item:hover {
+  cursor: pointer;
+  color: rgb(233, 20, 20);
+}
+
+/* 当前第一个是默认激活状态 */
+footer .item.active {
+  color: rgb(233, 20, 20);
+}
+
+/* 图标大一些 */
+footer .item span:first-of-type {
+  font-size: 0.2rem;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数组常用api-4</title>
+  </head>
+  <body>
+    <script>
+      // 1. sort
+      let arr = [1, 10, 20, 6];
+      console.log(arr.sort());
+      // asc
+      console.log(arr.sort((a, b) => a - b));
+      // desc
+      console.log(arr.sort((a, b) => b - a));
+
+      // 2. join:  array -> string
+
+      //   string.split string -> array
+      arr = ["red", "green", "blue"];
+      console.log(arr.join());
+      console.log(arr.join("-"));
+
+      // 3. slice: 子元素
+      arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      console.log(arr.slice(2, 5));
+      console.log(arr.slice(2));
+      console.log(arr.slice(-6, -3));
+
+      // 4. splce: 删除, 新增, 替换
+      // delete
+      console.log(arr);
+      console.log(arr.splice(1, 2));
+      console.log(arr);
+
+      // update
+      console.log(arr.splice(1, 2, "a", "b"));
+      console.log(arr);
+
+      // insert
+      console.log(arr.splice(1, 0, "red", "green"));
+      console.log(arr);
+
+      let data = ["red", "green", "blue"];
+      console.log(arr.splice(1, 0, ...data));
+      console.log(arr);
+
+      // 数组反转, 数组拼装, 拉平与一维数组... mdn
+    </script>
+  </body>
+</html>

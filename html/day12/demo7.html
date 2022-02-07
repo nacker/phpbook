@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js操作css</title>
+    <style>
+      div {
+        width: 150px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="color: red; background-color: lightgreen">Hello</div>
+
+    <script>
+      const div = document.querySelector("div");
+      // 行内样式,style
+      console.log(div.style.color);
+      console.log(div.style.backgroundColor);
+      //   console.log(div.style.width);
+      //   console.log(div.style.height);
+
+      // 计算样式: 内部<style>或外部 如 style.css
+
+      console.log(window.getComputedStyle(div).width);
+      console.log(window.getComputedStyle(div).height);
+      console.log(window.getComputedStyle(div).backgroundColor);
+
+      const width = window.getComputedStyle(div).width;
+      console.log(width, typeof width);
+      // 150px ===> 150
+      console.log(typeof parseInt(width));
+
+      div.style.width = parseInt(width) + 100 + "px";
+    </script>
+  </body>
+</html>

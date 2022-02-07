@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>元素的属性</title>
+  </head>
+  <body>
+    <!-- <女朋友 身高="170" 体重="160" 性别="女"></女朋友>
+
+      元素: 女朋友 
+      标签: <女朋友>
+      属性: 身高, 体重, 性别 -->
+
+    <!-- 1. 通用属性 class, id, style -->
+    <div class="top">top</div>
+    <div id="header">header</div>
+    <div style="color: red">Hello</div>
+
+    <!-- 2. 预置属性 -->
+    <a href="https://php.cn">php.cn</a>
+    <img src="" alt="" />
+    <link rel="stylesheet" href="" />
+
+    <!-- 3. 事件属性 on + click-->
+    <button onclick="alert('提交成功')">确定</button>
+    <div>
+      <input type="text" oninput="this.nextElementSibling.textContent = this.value" />
+      <p>实时显示输入的内容</p>
+    </div>
+
+    <!-- 4. 自定义属性 -->
+    <div data-email="admin@php.cn">用户信息</div>
+    <button onclick="this.nextElementSibling.textContent = this.previousElementSibling.dataset.email">
+      获取用户邮箱
+    </button>
+    <p>这里显示用户邮箱</p>
+
+    <!-- 通用: 相当于姓名, 性别, 年龄
+    预置: 肤色, 血型
+    事件: 走, 吃, 跑... 
+    自定义: 职业, 爱好....  -->
+  </body>
+</html>

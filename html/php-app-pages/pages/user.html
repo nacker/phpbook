@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../font_icon/iconfont.css" />
+    <link rel="stylesheet" href="../css/user.css" />
+    <title>我的:学习中心</title>
+  </head>
+  <body>
+    <!-- todo 页眉 -->
+    <header>
+      <!-- 头像与ID  -->
+      <div class="top">
+        <div class="pic">
+          <img src="../images/user-pic.jpg" alt="" />
+        </div>
+        <div class="desc">
+          <div class="name">
+            <span>猪老湿</span>
+            <span class="iconfont icon-zuanshi"></span>
+            <span class="iconfont icon-dunpai"></span>
+          </div>
+          <div class="user-id">学号ID: <span>5</span></div>
+        </div>
+      </div>
+      <!-- 广告条 -->
+      <div class="ads">
+        <a href="https://php.cn/k.html"><img src="../images/banner3.png" alt="" /></a>
+      </div>
+    </header>
+
+    <!-- todo 主体 -->
+    <main>
+      <ul class="list">
+        <li class="item" onclick="location.href='order.html'">
+          <div class="left">
+            <span class="iconfont icon-anzhuangshouce"></span>
+            <span>&nbsp;&nbsp;我的订单</span>
+          </div>
+          <span class="iconfont icon-youjiantou"></span>
+        </li>
+        <li class="item" onclick="location.href='messages.html'">
+          <div class="left">
+            <span class="iconfont icon-xiaoxi"></span>
+            <span>&nbsp;&nbsp;消息中心</span>
+          </div>
+          <span class="iconfont icon-youjiantou"></span>
+        </li>
+        <li class="item" onclick="location.href='feedback.html'">
+          <div class="left">
+            <span class="iconfont icon-wenhaoxiao"></span>
+            <span>&nbsp;&nbsp;意见反馈</span>
+          </div>
+          <span class="iconfont icon-youjiantou"></span>
+        </li>
+        <li class="item" onclick="无须页面,调用系统功能">
+          <div class="left">
+            <span class="iconfont icon-fenxiang"></span>
+            <span>&nbsp;&nbsp;分享App</span>
+          </div>
+          <span class="iconfont icon-youjiantou"></span>
+        </li>
+        <li class="item" onclick="location.href='settings.html'">
+          <div class="left">
+            <span class="iconfont icon-shezhi"></span>
+            <span>&nbsp;&nbsp;我的设置</span>
+          </div>
+          <span class="iconfont icon-youjiantou"></span>
+        </li>
+      </ul>
+    </main>
+
+    <!-- todo 底部 -->
+    <!-- ? 将第4个"学习"菜单设置为激活状态active -->
+    <footer>
+      <div class="item" onclick="location.href= 'index.html'">
+        <span class="iconfont icon-shouye"></span>
+        <span>首页</span>
+      </div>
+      <div class="item" onclick="location.href='category.html'">
+        <span class="iconfont icon-fenlei"></span>
+        <span>分类</span>
+      </div>
+      <div class="item" onclick="location.href='live.html'">
+        <span class="iconfont icon-zhibo-01"></span>
+        <span>直播</span>
+      </div>
+      <div class="item" onclick="location.href='study.html'">
+        <span class="iconfont icon-xuexi"></span>
+        <span>学习</span>
+      </div>
+      <div class="item active" onclick="location.href='user.html'">
+        <span class="iconfont icon-wode"></span>
+        <span>我的</span>
+      </div>
+    </footer>
+  </body>
+</html>

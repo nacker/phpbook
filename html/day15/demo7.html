@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>模块常识</title>
+  </head>
+  <body>
+    <script type="module">
+      // type="module": 支持模块系统
+      // 模块就是一个js文件,内部成员全部私有,通过导出对象来引用
+
+      // 1. 导入模块
+      //   import { user as user1, hello, email } from "./m1.js";
+      import { user, hello, email } from "./m1.js";
+
+      //   let user = "灭绝";
+      //   console.log(user1);
+      console.log(user);
+      console.log(hello(user));
+      console.log(email);
+    </script>
+  </body>
+</html>

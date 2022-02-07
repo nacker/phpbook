@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise状态</title>
+  </head>
+  <body>
+    <script>
+      // Promise原理: 选学
+
+      // 1. pending
+      let promise = new Promise(() => {});
+      console.log(promise);
+
+      /**
+       * 状态
+       * 1. pending: 等待
+       * 2. fulfilled: 成功
+       * 3. rejected: 失败
+       */
+
+      // pending -> fulfilled
+      // pending -> rejected
+      // 不可逆,单向
+
+      // 2. pending -> fulfilled
+      promise = new Promise((resolve, reject) => {
+        // JS执行机制: 先同步, 再异步
+        console.log(123);
+        setTimeout(() => {
+          resolve();
+        }, 5000);
+      });
+      // 同步
+      console.log(promise);
+
+      // 3. pending -> rejected
+      //   promise = new Promise((resolve, reject) => {
+      //     reject();
+      //   });
+      //   console.log(promise);
+    </script>
+  </body>
+</html>

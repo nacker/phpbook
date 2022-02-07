@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>组件:全局组件</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div class="app">
+        <!-- vue指令 -> 自定义属性 -->
+        <div v-text="'hello'"></div>
+
+        <!-- vue组件 -> 自定义标签 -->
+        <button-counter></button-counter>
+    </div>
+
+    <template id="counter">
+      <button @click="count++">点赞: {{count}}</button>
+    </template>
+
+    <script>
+        // 1. 创建实例
+        const app = Vue.createApp({})
+
+        // 2. 注册组件
+        app.component('ButtonCounter', {
+            template: '#counter',
+            data() {
+                return {
+                    count: 0,
+                }
+            },
+        })
+
+        // 3. 绑定挂载点
+        app.mount('.app')
+    </script>
+</body>
+
+</html>

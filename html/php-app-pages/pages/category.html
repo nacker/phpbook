@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../font_icon/iconfont.css" />
+    <link rel="stylesheet" href="../css/cate.css" />
+    <title>分类页面</title>
+  </head>
+  <body>
+    <!-- todo 页眉 -->
+    <header>
+      <!-- * 搜索框 -->
+      <div class="search" onclick="location.href='search.html'">
+        <div class="input">
+          <span class="iconfont icon-fangdajing"></span>
+          <span>搜索课程和关键词</span>
+        </div>
+
+        <span class="iconfont icon-zhong"></span>
+      </div>
+    </header>
+
+    <!-- todo 主体 -->
+    <main>
+      <!-- * 左侧分类 -->
+      <!-- * showDetails(): 点击事件,显示对应的详情列表 -->
+      <ul class="cates" onclick="showDetails(event)">
+        <li class="cate active" data-index="1">精选分类</li>
+        <li class="cate" data-index="2">前端开发</li>
+        <li class="cate" data-index="3">后端开发</li>
+        <li class="cate" data-index="4">数据库</li>
+        <li class="cate" data-index="5">移动开发</li>
+      </ul>
+      <!-- *右侧详情 -->
+      <div class="container">
+        <!-- *详情顶部广告位图片 -->
+        <div class="ads">
+          <a href="gongyike.html"><img src="../images/banner1.jpg" alt="" /></a>
+        </div>
+        <!-- * 与分类对应的详情列表 -->
+        <div class="details">
+          <!-- ? 精选分类对应的详情列表: 默认显示 -->
+          <ul class="list active" data-index="1">
+            <li class="item" onclick="xxx.html">
+              <span class="iconfont icon-php"></span>
+              <span>PHP</span>
+            </li>
+            <li class="item" onclick="xxx.html">
+              <span class="iconfont icon-html"></span>
+              <span>HTML</span>
+            </li>
+            <li class="item" onclick="xxx.html">
+              <span class="iconfont icon-css"></span>
+              <span>CSS</span>
+            </li>
+            <li class="item" onclick="xxx.html">
+              <span class="iconfont icon-jQuery"></span>
+              <span>jQuery</span>
+            </li>
+            <li class="item" onclick="xxx.html">
+              <span class="iconfont icon-logo-javascript"></span>
+              <span>JavaScript</span>
+            </li>
+            <li class="item" onclick="xxx.html">
+              <span class="iconfont icon-java"></span>
+              <span>Java</span>
+            </li>
+            <li class="item" onclick="xxx.html">
+              <span class="iconfont icon-Redis"></span>
+              <span>Redis</span>
+            </li>
+            <li class="item" onclick="xxx.html">
+              <span class="iconfont icon-React"></span>
+              <span>React</span>
+            </li>
+            <li class="item" onclick="xxx.html">
+              <span class="iconfont icon-Vue"></span>
+              <span>Vue</span>
+            </li>
+          </ul>
+          <ul class="list" data-index="2">
+            <li class="item" onclick="xxx.html">
+              <span class="iconfont icon-html"></span>
+              <span>HTML</span>
+            </li>
+            <li class="item" onclick="xxx.html">
+              <span class="iconfont icon-css"></span>
+              <span>CSS</span>
+            </li>
+            <li class="item" onclick="xxx.html">
+              <span class="iconfont icon-Bootstrap"></span>
+              <span>Bootstrap</span>
+            </li>
+            <li class="item" onclick="xxx.html">
+              <span class="iconfont icon-jQuery"></span>
+              <span>jQuery</span>
+            </li>
+            <li class="item" onclick="xxx.html">
+              <span class="iconfont icon-Nodejs"></span>
+              <span>Node.js</span>
+            </li>
+            <li class="item" onclick="xxx.html">
+              <span class="iconfont icon-React"></span>
+              <span>Reaact</span>
+            </li>
+          </ul>
+          <ul class="list" data-index="3">
+            <li class="item" onclick="xxx.html">
+              <span class="iconfont icon-php"></span>
+              <span>PHP</span>
+            </li>
+            <li class="item" onclick="xxx.html">
+              <span class="iconfont icon-Python"></span>
+              <span>Python</span>
+            </li>
+            <li class="item" onclick="xxx.html">
+              <span class="iconfont icon-java"></span>
+              <span>Java</span>
+            </li>
+            <li class="item" onclick="xxx.html">
+              <span class="iconfont icon-cyuyan"></span>
+              <span>C/C++</span>
+            </li>
+            <li class="item" onclick="xxx.html">
+              <span class="iconfont icon-Docker"></span>
+              <span>Docker</span>
+            </li>
+          </ul>
+          <ul class="list" data-index="4">
+            <li class="item" onclick="xxx.html">
+              <span class="iconfont icon-mysql"></span>
+              <span>MySQL</span>
+            </li>
+            <li class="item" onclick="xxx.html">
+              <span class="iconfont icon-Redis"></span>
+              <span>Redis</span>
+            </li>
+            <li class="item" onclick="xxx.html">
+              <span class="iconfont icon-sql"></span>
+              <span>SQL</span>
+            </li>
+            <li class="item" onclick="xxx.html">
+              <span class="iconfont icon-mongodb"></span>
+              <span>MongoDB</span>
+            </li>
+          </ul>
+          <ul class="list" data-index="5">
+            <li class="item" onclick="xxx.html">
+              <span class="iconfont icon-Android"></span>
+              <span>Android</span>
+            </li>
+            <li class="item" onclick="xxx.html">
+              <span class="iconfont icon-iOS"></span>
+              <span>iOS</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <!-- todo 底部 -->
+    <!-- ? 将第2个"分类"菜单设置为激活状态active -->
+    <footer>
+      <div class="item" onclick="location.href= 'index.html'">
+        <span class="iconfont icon-shouye"></span>
+        <span>首页</span>
+      </div>
+      <div class="item active" onclick="location.href='category.html'">
+        <span class="iconfont icon-fenlei"></span>
+        <span>分类</span>
+      </div>
+      <div class="item" onclick="location.href='live.html'">
+        <span class="iconfont icon-zhibo-01"></span>
+        <span>直播</span>
+      </div>
+      <div class="item" onclick="location.href='study.html'">
+        <span class="iconfont icon-xuexi"></span>
+        <span>学习</span>
+      </div>
+      <div class="item" onclick="location.href='user.html'">
+        <span class="iconfont icon-wode"></span>
+        <span>我的</span>
+      </div>
+    </footer>
+
+    <!-- 加载 JS 公共函数库 -->
+    <script src="../js/public-func.js"></script>
+  </body>
+</html>
