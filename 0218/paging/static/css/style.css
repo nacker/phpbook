@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*表格样式*/
+table {
+  width: 80%;
+  border: 1px solid;
+  border-collapse: collapse;
+  text-align: center;
+}
+ 
+table caption {
+  font-size: 1.2rem;
+  margin: 10px;
+}
+table td,
+table th {
+  border: 1px solid #555;
+  padding: 5px;
+}
+ 
+table tr:hover {
+  background-color: #eee;
+}
+table thead tr:only-of-type {
+  background-color: #009688;
+  color:#FFFFFF  
+}
+
+table button {
+  width: 56px;
+  height: 26px;
+}
+table button:last-of-type {
+  color: red;
+}
+table button {
+  cursor: pointer;
+  margin: 0 3px;
+}
+/*分页条样式*/
+body > p {
+  display: flex;
+}
+
+p > a {
+  text-decoration: none;
+  color: #555;
+  border: 1px solid;
+  padding: 5px 10px;
+  margin: 10px 2px;
+}
+
+.active {
+  background-color: #009688;
+  color: white;
+  border: 1px solid #009688;
+}

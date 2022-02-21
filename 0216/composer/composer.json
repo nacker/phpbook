@@ -1,0 +1,20 @@
+{
+    "name": "chloe/login",
+    "description": "a testing login page with captcha validation",
+    "type": "project",
+    "require": {
+        "gregwar/captcha": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Chloe\\Login\\": "src/",
+            "lib\\": "extend"
+        }
+    },
+    "authors": [
+        {
+            "name": "imzchloe",
+            "email": "952637517@qq.com"
+        }
+    ]
+}
